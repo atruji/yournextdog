@@ -1,0 +1,110 @@
+import pandas as pd
+import numpy as np
+import psycopg2
+import requests
+import shutil
+import random
+import boto
+from skimage.io import imread,imsave
+from skimage.transform import resize
+from sklearn.metrics.pairwise import pairwise_distances
+import subprocess
+import multiprocessing as mp
+
+def test_split(in_val):
+	return in_val[0], map(float,in_val[1].replace('{','').replace('}','').split(','))
+
+
+class DoggyMatchEngine(object):
+	def __init__(self, GPU=True):
+		self.conn = psycopg2.connect(dbname='doggies', user='ubuntu')
+		self.psql = self.conn.cursor()
+		self.features = []
+		self.GPU = GPU
+
+
+	def fit(self,user_input):
+		if "http" in user_input or "https" in user_input:
+			r = requests.get(user_input, stream=True)
+			if r.status_code == 200:
+				rand_name = '/tmp/img_'+str(random.randint(1,999999))+'.jpg'
+				with open(rand_name, 'wb') as f:
+					r.raw.decode_content = True
+					shutil.copyfileobj(r.raw, f)
+					img_file = rand_name 
+		else: 
+			img_file = user_input
+
+		img = imread(img_file)
+		i_size = img.shape
+		if i_size[0] < 221 or i_size[1] < 221 or (i_size[2] != 3 and i_size[2] != 4):
+			raise Exception('Img too small to process.')
+		imgr = resize(img,[221,221])
+		img_file = img_file
+		imsave(img_file,imgr)
+		if self.GPU:
+			p = subprocess.check_output(["/OverFeat/bin/linux_64/cuda/overfeat_cuda", "-f", "-l", img_file])
+		else:
+			p = subprocess.check_output(["/OverFeat/bin/linux_64/overfeat", "-f", "-l", img_file])
+		features = p.replace('\n','').replace('1-','').strip(' ').split(' ')[2:]
+		features =  [float(x) for x in features]
+		if len(features) != 4096:
+			raise Exception('Feature size is off.')
+		self.user_features = features
+
+
+
+	def match(self, user_zip, user_radius, num_matches=10):
+		self.psql.execute(
+			'''select lng,lat from zipcodes where zip=%s limit 1;  
+			''' % user_zip
+			)
+		lnglat = self.psql.fetchall()
+		user_long = lnglat[0][0]
+		user_lat = lnglat[0][1]
+
+		self.psql.execute(
+			'''select id,features from data where ST_Distance_Sphere(geom, ST_MakePoint(%s, %s))*0.000621371 < %s;  
+			''' % (user_long,user_lat,user_radius)
+			)
+		filtered = self.psql.fetchall()
+
+		pool = mp.Pool(8)
+		rec_tuple = pool.map(test_split,filtered)
+		self.geo_ids_lst = [x[0] for x in rec_tuple]
+		self.geo_feature_lst = [x[1] for x in rec_tuple]
+
+		self.sim_scores = pairwise_distances(np.array(self.user_features),np.array(self.geo_feature_lst),'cosine', n_jobs=-1)
+		self.sim_scores = np.array(self.sim_scores).flatten()
+		self.ids = np.array(self.geo_ids_lst)
+		self.min_arr = self.sim_scores.argsort()[:num_matches]
+		self.top10_scores = self.sim_scores[self.min_arr]
+		self.top10_ids = self.ids[self.min_arr]
+
+
+	def results(self): 
+		access_key, access_secret_key = 'AKIAJRRHY72F4GUYGB7Q', 'lBu+3v2UOxkuWQ+Uj1ZV+utMwTrERLS8y19DaFCb'
+		conn = boto.connect_s3(access_key, access_secret_key)
+		bucket_name = 'akiajrrhy72f4guygb7-1'
+		bucket = conn.get_bucket(bucket_name)
+
+		img_data = []
+		for x,val in enumerate(self.top10_ids):
+			self.psql.execute(
+			'''select name,gender,age,city,state,zip from data where id='%s';  
+			''' % val)
+			img_details = self.psql.fetchall()[0]
+			key = val.encode('ascii','ignore')+'.jpg'
+			outfile = '/tmp/dogs/'+'m'+str(x)+'_'+key
+			img = bucket.get_key(key)
+			img.get_contents_to_filename(outfile)
+			img_data.append([val,outfile,self.top10_scores[x],img_details[0],img_details[1],img_details[2],img_details[3],img_details[4],img_details[5]])
+		df = pd.DataFrame(np.array(img_data), columns=['id','img_loc','score','name','gender','age','city','state','zip'])
+		df.to_csv('/tmp/dogs/testdata.csv')
+
+
+
+
+
+
+
