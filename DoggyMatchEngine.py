@@ -3,7 +3,6 @@ import numpy as np
 import psycopg2
 import requests
 import shutil
-import random
 import boto
 from skimage.io import imread,imsave
 from skimage.transform import resize
@@ -25,11 +24,12 @@ class DoggyMatchEngine(object):
 		self.GPU = GPU
 
 
-	def fit(self,user_input):
+	def fit(self,user_input,session_id):
+		self.session_id=session_id
 		if "http" in user_input or "https" in user_input:
 			r = requests.get(user_input, stream=True)
 			if r.status_code == 200:
-				rand_name = '/tmp/img_'+str(random.randint(1,999999))+'.jpg'
+				rand_name = '/tmp/img_'+session_id+'.jpg'
 				with open(rand_name, 'wb') as f:
 					r.raw.decode_content = True
 					shutil.copyfileobj(r.raw, f)
@@ -115,9 +115,9 @@ class DoggyMatchEngine(object):
 
 
 	def results(self): 
-		access_key, access_secret_key = 'AKIAJRRHY72F4GUYGB7Q', 'lBu+3v2UOxkuWQ+Uj1ZV+utMwTrERLS8y19DaFCb'
+		access_key, access_secret_key = '', ''
 		conn = boto.connect_s3(access_key, access_secret_key)
-		bucket_name = 'akiajrrhy72f4guygb7-1'
+		bucket_name = ''
 		bucket = conn.get_bucket(bucket_name)
 
 		img_data = []
@@ -127,12 +127,13 @@ class DoggyMatchEngine(object):
 			''' % val)
 			img_details = self.psql.fetchall()[0]
 			key = val.encode('ascii','ignore')+'.jpg'
-			outfile = '/tmp/dogs/'+'m'+str(x)+'_'+key
+			#outfile = '/tmp/dogs/'+'m'+str(x)+'_'+key
 			img = bucket.get_key(key)
-			img.get_contents_to_filename(outfile)
+			#img.get_contents_to_filename(outfile)
+			outfile = img.generate_url(6000)
 			img_data.append([val,outfile,self.top10_scores[x],img_details[0],img_details[1],img_details[2],img_details[3],img_details[4],img_details[5]])
-		df = pd.DataFrame(np.array(img_data), columns=['id','img_loc','score','name','gender','age','city','state','zip'])
-		df.to_csv('/tmp/dogs/testdata.csv')
+		self.df = pd.DataFrame(np.array(img_data), columns=['id','img_loc','score','name','gender','age','city','state','zip'])
+		self.df.to_csv('/tmp/dogs/'+self.session_id+'.csv')
 
 
 
