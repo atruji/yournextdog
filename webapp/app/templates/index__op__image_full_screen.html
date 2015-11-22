@@ -8,7 +8,7 @@
     <meta name="keywords" content="Agency, Corporate, Flat, Responsive">
     <meta name="robots" content="noindex,nofollow">
 
-    <title>R E ! G N - Home One-Page | Fat free responsive agency template</title>
+    <title>YourNextDog</title>
 
     <link rel="shortcut icon" href="../static/assets/images/favicons/favicon.ico" />
     <link rel="apple-touch-icon" sizes="57x57" href="../static/assets/images/favicons/apple-icon-57x57.png">
@@ -148,12 +148,18 @@
 
                     <!-- service -->
                     <div class="service">
-                        <div class="service-icon text-center">
-                            <span class="ion-ios-albums-outline"></span>
-                        </div>
                         <div class="about-service">
                             <h4 class="text-center">Upload a Photo</h4>
                             <p class="text-center">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat ex eget sollicitudin eget.</p>
+                        <form action="" method="post" name="searchfile" enctype="multipart/form-data">
+                        <p class="text-center">Please upload a dog image:<br>
+                        {{ formfile.fileName(size=40) }}<br></p>
+                        <p>Please enter your zipcode:<br>
+                        {{ formfile.zipcode(size=10) }}<br></p>
+                        <p>
+                        Search Radius?{{ formfile.radius }}
+                        </p>
+                        <p><input type="submit" value="Search"></p>
                         </div>
                     </div>
 
@@ -164,22 +170,19 @@
                     <!-- service -->
                     
                     <div class="service">
-                        <div class="service-icon text-center">
-                            <span class="ion-ios-americanfootball-outline"></span>
-                        </div>
                         <div class="about-service">
                             <h4 class="text-center">Submit a Link to an Image</h4>
                             <p class="text-center">
                                 Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat ex eget sollicitudin eget.
                             </p>
 
-                            <form action="" method="post" name="search" enctype="multipart/form-data">
+                        <form action="" method="post" name="searchweb" enctype="multipart/form-data">
                         <p class="text-center">Please enter a URL to a dog image:<br>
-                        {{ form.dogurl(size=40) }}<br></p>
+                        {{ formweb.dogurl(size=40) }}<br></p>
                         <p>Please enter your zipcode:<br>
-                        {{ form.zipcode(size=10) }}<br></p>
+                        {{ formweb.zipcode(size=10) }}<br></p>
                         <p>
-                        Search Radius?{{ form.radius }}
+                        Search Radius?{{ formweb.radius }}
                         </p>
                         <p><input type="submit" value="Search"></p>
 
@@ -195,9 +198,6 @@
 
                     <!-- service -->
                     <div class="service">
-                        <div class="service-icon text-center">
-                            <span class="ion-ios-game-controller-b-outline"></span>
-                        </div>
                         <div class="about-service">
                             <h4 class="text-center">Interactive Matcher</h4>
                             <p class="text-center">

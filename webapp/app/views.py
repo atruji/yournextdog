@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect,url_for, request
 from app import app
-from .forms import SearchForm
+from .forms import SearchFormWeb, SearchFormFile
 import pandas as pd
 import re
 import random
@@ -12,7 +12,9 @@ from werkzeug import secure_filename
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def search():
-	form = SearchForm()
+	formfile = SearchFormFile()
+	formweb = SearchFormWeb()
 	return render_template('index__op__image_full_screen.html', 
                            title='Search',
-                           form=form)
+                           formfile=formfile,
+                           formweb=formweb)
