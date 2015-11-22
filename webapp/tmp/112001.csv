@@ -1,0 +1,11 @@
+,id,img_loc,score,name,gender,age,city,state,zip
+0,31906595_1,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/31906595_1.jpg?Signature=fqDF5FtnxGUmPsYWzY6maSsorZE%3D&Expires=1448236263&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.147006177916,Ruby,F,Adult,Modesto,CA,95357
+1,33431766_1,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33431766_1.jpg?Signature=ysqYW535C8LFM17maB7WU5fSbLA%3D&Expires=1448236263&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.148021107114,Gordon Biersch,M,Young,Pittsburg,CA,94565
+2,33623092_1,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33623092_1.jpg?Signature=XGp4anRgTbmRy%2BYVcfImFn%2BHzss%3D&Expires=1448236263&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.149019160859,Romeo,M,Young,Antioch,CA,94531
+3,24378186_2,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/24378186_2.jpg?Signature=R5iTK4RfVzBfANac%2F%2Fn%2BkkatmKU%3D&Expires=1448236263&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.158649657344,Lady,F,Adult,Cupertino,CA,95014
+4,33492113_2,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33492113_2.jpg?Signature=EnAe0oHo0pLlw3%2B2etUI2a%2FzFLI%3D&Expires=1448236263&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.160963033503,Foxy A332896,F,Adult,San Francisco,CA,94103
+5,33419576_1,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33419576_1.jpg?Signature=K%2BKG5W1C8o6kUIf7Z%2F2MlCwWlaE%3D&Expires=1448236263&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.164983532213,Ingrid,F,Senior,San Francisco,CA,94141
+6,28193807_2,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/28193807_2.jpg?Signature=NkfchJIP%2BgExeMTw9hUkXGNINYI%3D&Expires=1448236263&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.165467712807,Kringle,M,Adult,Tracy,CA,95376
+7,33629461_1,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33629461_1.jpg?Signature=d%2B8KwqzTtnV4UOpSbuF3Tk40h8Y%3D&Expires=1448236263&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.16932528541,Puff,F,Senior,Santa Cruz,CA,95063
+8,33262517_2,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33262517_2.jpg?Signature=fHYGG71iTn1wYlrYoGuowFsYfSM%3D&Expires=1448236263&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.169655862241,Tigger,M,Adult,Point Richmond,CA,94801
+9,33217735_3,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33217735_3.jpg?Signature=jtLVVxdmHaA9rwWEGWyEAC2bqDs%3D&Expires=1448236263&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.169708162167,Arie,M,Young,Walnut Creek,CA,94598

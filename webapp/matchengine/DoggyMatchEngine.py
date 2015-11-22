@@ -27,10 +27,11 @@ class DoggyMatchEngine(object):
 
 	def fit(self,user_input,session_id):
 		self.session_id=session_id
+		print os.getcwd()
 		if "http" in user_input or "https" in user_input:
 			r = requests.get(user_input, stream=True)
 			if r.status_code == 200:
-				rand_name = '/tmp/img_'+session_id+'.jpg'
+				rand_name = 'tmp/img_'+session_id+'.jpg'
 				with open(rand_name, 'wb') as f:
 					r.raw.decode_content = True
 					shutil.copyfileobj(r.raw, f)
@@ -133,7 +134,7 @@ class DoggyMatchEngine(object):
 			outfile = img.generate_url(6000)
 			img_data.append([val,outfile,self.top10_scores[x],img_details[0],img_details[1],img_details[2],img_details[3],img_details[4],img_details[5]])
 		self.df = pd.DataFrame(np.array(img_data), columns=['id','img_loc','score','name','gender','age','city','state','zip'])
-		self.df.to_csv('/tmp/dogs/'+self.session_id+'.csv')
+		self.df.to_csv('tmp/'+self.session_id+'.csv')
 
 
 

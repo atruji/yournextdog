@@ -31,10 +31,10 @@ def search():
 	formweb = SearchFormWeb()
 	valid, ftype = form_validate(formfile,formweb)
 	if valid and ftype=='SearchFormFile':
-		filename = secure_filename(form.fileName.data.filename)
+		filename = secure_filename(formfile.fileName.data.filename)
 		if filename and allowed_file(filename): 
 			file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-			form.fileName.data.save(file_path)
+			formfile.fileName.data.save(file_path)
 			user_file = file_path
 		else:
 			flash('Error with submission!') 
