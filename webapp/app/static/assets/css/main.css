@@ -136,7 +136,7 @@ html, body {
 
 /* section */
 .section {
-  padding: 30px 0;
+  padding: 50px 0;
   position: relative;
   z-index: 5;
   background-color: #ffffff; }
@@ -1400,7 +1400,9 @@ blockquote p {
           .testimonial .owl-controls a.next {
             right: 0; } }
 
+.about-us {background-image: url('banner.jpg');}
 .about-us .section-content .about-content {
+  background-color: #848482;
   text-align: center;
   margin-bottom: 0;
   padding: 25px; }
@@ -1427,12 +1429,13 @@ blockquote p {
   @media only screen and (max-width: 992px) {
     .about-us .section-content h4 {
       margin-top: 0;
-      margin-bottom: 15px; } }
+      margin-bottom: 0; } }
 
 .services {
   background-image: url('banner.jpg');
   background-size: cover; }
   .services .service {
+    background-color: #848482;
     padding: 30px 15px;
     position: relative;
     margin-bottom: 20px;
@@ -1466,6 +1469,7 @@ blockquote p {
     transition: all 0.5s cubic-bezier(0.63, 0.32, 0.05, 0.39) 0s; }
   .services .service::after {
     position: absolute;
+    background-color: #98777b;
     top: 1px;
     left: -3px;
     width: -webkit-calc(100% + 6px);
@@ -1476,10 +1480,10 @@ blockquote p {
     -webkit-transition: all 0.5s cubic-bezier(0.63, 0.32, 0.05, 0.39) 0s;
     transition: all 0.5s cubic-bezier(0.63, 0.32, 0.05, 0.39) 0s; }
   .services .service:hover {
-    background-color: #FAFAFA; }
+    background-color: #98777b; }
   .services .service:hover::before,
   .services .service:hover::after {
-    border-color: #FAFAFA; }
+    border-color: #848482; }
 
 .funfacts {
   background: url(../images/backgrounds/bg-fun-fact.jpg) no-repeat center center;
