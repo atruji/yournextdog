@@ -1,7 +1,223 @@
-{% for image, name, gender, age, match_score, profile_page in data %}
-	<table border="1px solid black" style="width:300px">
-    <tr>
-    <td>Match Score: {{ match_score}}%<br>Name: {{ name }}<br>Gender: {{ gender }}<br>Age: {{ age }}<br><a href="{{ profile_page }}">Adopt Me!</a></td>
-	<img border="0" src="{{ image }}">
-    </tr>
-{% endfor %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Description" content="A fat free flat responsive corporate agency templae">
+    <meta name="keywords" content="Agency, Corporate, Flat, Responsive">
+    <meta name="robots" content="noindex,nofollow">
+
+    <title>YourNextDog</title>
+
+    <link rel="shortcut icon" href="../static/assets/images/favicons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="57x57" href="../static/assets/images/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../static/assets/images/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../static/assets/images/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../static/assets/images/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../static/assets/images/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../static/assets/images/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../static/assets/images/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../static/assets/images/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/assets/images/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="../static/assets/images/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../static/assets/images/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/assets/images/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../static/assets/images/favicons/manifest.json">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-TileImage" content="../static/assets/images/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#000000">
+
+
+    <!-- css -->
+    <link rel="stylesheet" href="../static/assets/lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/assets/lib/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/assets/lib/ionicons/css/ionicons.css">
+    <link rel="stylesheet" href="../static/assets/lib/owlcarousel/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="../static/assets/lib/owlcarousel/owl-carousel/owl.theme.css">
+    <link rel="stylesheet" href="../static/assets/lib/FlexSlider/flexslider.css">
+    <link rel="stylesheet" href="../static/assets/lib/magnific-popup/dist/magnific-popup.css"/>
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:100,300,400">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:100,300,400">
+
+    <link rel="stylesheet" href="../static/assets/css/main2.css">
+    <link rel="stylesheet" href="../static/assets/css/ie_fix.css">
+
+    <script src="../static/assets/lib/components-modernizr/modernizr.js"></script>
+    <script src="../static/assets/lib/jquery/dist/jquery.js"></script>
+    <script src="../static/assets/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+</head>
+
+<body data-spy="scroll" data-target="#main-nav-collapse" data-offset="100">
+
+<div class="page-loader">
+    <div class="loader">Loading...</div>
+</div>
+<!-- Fixed Top Navigation -->
+<nav id="fixedTopNav" class="navbar navbar-fixed-top main-navigation" itemscope itemtype="https://schema.org/SiteNavigationElement" role="navigation">
+    <div class="container">
+
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="ion-drag"></span>
+            </button>
+
+            <!-- Logo -->
+            <div class="navbar-brand" itemscope itemtype="https://schema.org/Organization">
+                <span itemprop="name" class="sr-only">YourNextDog.com</span>
+                <a itemprop="url" href="index__op__image_full_screen.html"><img src="../static/doggroup.png" alt="Dog Pack" height="75" width="90">
+                    YourNextDog.com
+                </a>
+            </div>
+            <!-- /Logo -->
+
+        </div><!-- /.navbar-header -->
+
+        <!-- Navigation Links -->
+        <div class="collapse navbar-collapse" id="main-nav-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                
+                <li><a href="#services" itemprop="url">
+                    <span itemprop="name">Find A Dog</span>
+                </a></li>
+
+                <li><a href="#about-us" itemprop="url">
+                    <span itemprop="name">About</span>
+                </a></li>
+
+                <li><a href="#contact" itemprop="url">
+                    <span itemprop="name">Contact</span>
+                </a></li>
+
+            </ul>
+        </div>
+        <!-- /Navigation Links -->
+
+    </div><!-- /.container -->
+</nav>
+<!-- /Fixed Top Navigation -->
+<!-- Header -->
+<header id="header" class="header-wrapper home-parallax home-fade">
+    <div class="color-overlay"></div>
+    
+</header>
+<!-- /Header -->
+
+<!-- Portfolio -->
+<section id="portfolio" class="section portfolio">
+    <div class="container">
+
+        <!---->
+        <header class="section-heading">
+            <h2>Match Results</h2>
+            <span>Successful projects,happy clients and great results</span>
+        </header>
+        <!---->
+    </div>
+
+    <!---->
+
+        <!---->
+
+        <!---->
+
+        <!---->
+        <div class="portfolio-grid">
+        <!---->
+
+    <!---->
+
+    <!---->
+            <ul id="da-thumbs" class="da-thumbs isotope">
+            {% for image, name, gender, age, match_score, profile_page in data %}
+            <li data-category="design" class="design">
+                <a href="{{ profile_page }}">
+                    <img src="{{ image }}" alt="" />
+
+                    <div class="portfolio-detail-overlay">
+                        <div class="middle-align-wrap">
+                            <div class="middle-align-cell">
+                                <span>Name: {{ name }}<br>
+                                    Gender: {{ gender }} <br>
+                                    Age: {{ age }}<br>
+                                    Click to see my profile!</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+
+        {% endfor %}     
+        </ul>
+    </div><!--/portfolio-grid-->
+
+
+</section>
+<!-- /Portfolio -->
+
+
+
+<!-- footer -->
+<footer id="footer" class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-4">
+                <p class="copyright text-xs-center">&copy; 2015 Your company name</p>
+            </div>
+
+            <div class="col-md-5 col-sm-4">
+                <ul class="footer-social-block">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+
+                    <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+
+                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
+
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+
+                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+
+                </ul>
+            </div>
+
+            <div class="col-md-4 col-sm-4">
+                <div class="footer-menu text-xs-center">
+                    <a href="#">Privacy Policy</a> | <a href="">Terms &amp; Conditions</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- #footer -->
+
+<a id="totop" href="#totop"><i class="fa fa-angle-double-up"></i></a>
+<!-- js -->
+<script src="../static/assets/lib/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="../static/assets/lib/isotope/dist/isotope.pkgd.min.js"></script>
+<script src="../static/assets/lib/owlcarousel/owl-carousel/owl.carousel.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script src="../static/assets/lib/waypoints/lib/jquery.waypoints.min.js"></script>
+<script src="../static/assets/lib/waypoints/lib/shortcuts/inview.min.js"></script>
+
+<script src="../static/assets/lib/FlexSlider/jquery.flexslider.js"></script>
+<script src="../static/assets/lib/simple-text-rotator/jquery.simple-text-rotator.js"></script>
+<script src="../static/assets/lib/jquery.mb.YTPlayer/dist/jquery.mb.YTPlayer.min.js"></script>
+<script src="../static/assets/lib/magnific-popup/dist/jquery.magnific-popup.js"></script>
+
+<script src="../static/assets/js/main.js"></script>
+
+<!--[if lt IE 10]>
+<script>
+    $('input, textarea').placeholder();
+</script>
+<![endif]-->
+
+</body>
+</html>

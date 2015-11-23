@@ -1,0 +1,27 @@
+<div id="myDiv">
+  <img alt="Client Logo" title="Client Logo" src="../static/testdog.jpg" />
+</div>
+
+<div id="myDiv">
+  <img alt="Client Logo" title="Client Logo" src="../static/discodog.gif" />
+</div>
+
+<style>
+#myDiv 
+{
+  height:104px;
+  width:140px;
+}
+#myDiv img
+{
+  max-width:100%; 
+  max-height:100%;
+  margin:auto;
+  display:block;
+}
+var logoHeight = $('#myDiv img').height();
+    if (logoHeight < 104) {
+        var margintop = (104 - logoHeight) / 2;
+        $('#myDiv img').css('margin-top', margintop);
+    }
+</style>

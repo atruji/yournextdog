@@ -1,0 +1,7 @@
+{% for image, name, gender, age, match_score, profile_page in data %}
+	<table border="1px solid black" style="width:300px">
+    <tr>
+    <td>Match Score: {{ match_score}}%<br>Name: {{ name }}<br>Gender: {{ gender }}<br>Age: {{ age }}<br><a href="{{ profile_page }}">Adopt Me!</a></td>
+	<img border="0" src="{{ image }}">
+    </tr>
+{% endfor %}
