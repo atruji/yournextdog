@@ -136,7 +136,7 @@ html, body {
 
 /* section */
 .section {
-  padding: 50px 0;
+  padding: 120px 0;
   position: relative;
   z-index: 5;
   background-color: #ffffff; }
@@ -618,6 +618,7 @@ blockquote p {
   color: #d43f3a; }
 
 .main-navigation {
+  background: #000000;
   border-bottom-color: rgba(255, 255, 255, 0.26);
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease; }
@@ -782,7 +783,7 @@ blockquote p {
     background-color: rgba(0, 0, 0, 0.9); } }
 .header-wrapper {
   display: table;
-  height: 17.5vh;
+  height: 17vh;
   width: 100%;
   position: relative;
   z-index: 1;
