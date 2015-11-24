@@ -104,231 +104,232 @@
 <div id="loading"></div>
 <div id="content">
 
-<!-- Header -->
-<header id="header" class="header-wrapper home-parallax home-fade dark-bg">
-    <div class="color-overlay"></div>
-    
-    <div class="header-wrapper-inner">
+    <!-- Header -->
+    <header id="header" class="header-wrapper home-parallax home-fade dark-bg">
+        <div class="color-overlay"></div>
+        
+        <div class="header-wrapper-inner">
+            <div class="container">
+
+                <div class="intro">
+                    <h2>Looking to Adopt a New Best Friend?</h2>
+                    <p>You have an idea of what you want your next dog to look like.</p>
+                    <a href="#services" class="btn btn-default-o onPageNav">Let's Go!</a>
+                </div><!-- /.intro -->
+
+            </div><!-- /.container -->
+
+            <div class="arrow-down">
+                <a href="#about-us" class="onPageNav">
+                    <i class="ion-ios-arrow-down"></i>
+                </a>
+            </div><!-- /.arrow-down -->
+
+        </div><!-- /.header-wrapper-inner -->
+        <div class="overlay_vid"></div>
+        <div class="fullscreen-bg">
+        <video muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
+            <source src="../static/banner.mp4" type="video/mp4">
+        </video>
+    </header>
+    <!-- /Header -->
+    <!-- Service -->
+    <section id="services" class="section services">
         <div class="container">
 
-            <div class="intro">
-                <h2>Looking to Adopt a New Best Friend?</h2>
-                <p>You have an idea of what you want your next dog to look like.</p>
-                <a href="#services" class="btn btn-default-o onPageNav">Let's Go!</a>
-            </div><!-- /.intro -->
+            <!---->
+            <header class="section-heading">
+                <h2>Let's Get Started!</h2>
+                <h4>How would you like to search? </h4>
+            </header>
+            <!---->
 
-        </div><!-- /.container -->
+            <div class="section-content">
+                <div class="row">
+                    <div class="col-sm-4">
 
-        <div class="arrow-down">
-            <a href="#about-us" class="onPageNav">
-                <i class="ion-ios-arrow-down"></i>
-            </a>
-        </div><!-- /.arrow-down -->
-
-    </div><!-- /.header-wrapper-inner -->
-    <div class="overlay_vid"></div>
-    <div class="fullscreen-bg">
-    <video muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
-        <source src="../static/banner.mp4" type="video/mp4">
-    </video>
-</header>
-<!-- /Header -->
-<!-- Service -->
-<section id="services" class="section services">
-    <div class="container">
-
-        <!---->
-        <header class="section-heading">
-            <h2>Let's Get Started!</h2>
-            <h4>How would you like to search? </h4>
-        </header>
-        <!---->
-
-        <div class="section-content">
-            <div class="row">
-                <div class="col-sm-4">
-
-                    <!-- service -->
-                    <div class="service">
-                        <div class="about-service">
-                            <p class="text-center"><img src="../static/discodog.gif" alt="Disco Dog" height="90" width="90"></p>
-                            <h4 class="text-center">Upload a Photo</h4>
-                            <p class="text-center">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat ex eget sollicitudin eget.</p>
-                        
-                        </div>   
-                        <form action="" method="post" name="search" enctype="multipart/form-data">
-                        <p class="text-center">Please upload a dog image:<br>
-                        {{ formfile.fileName(size=40) }}<br></p>
-                        <p>Please enter your zipcode:<br>
-                        {{ formfile.zipcode(size=10) }}<br></p>
-                        <p>
-                        Search Radius?{{ formfile.radius }}
-                        </p>
-                        <p class="text-center"><input type="submit" value="Search" style="font-face: 'Comic Sans MS'; font-size: larger; background-color:#a9a9a9" onclick="loading();"></p></form>
-                    </div>
-
-                </div>
-                <!-- col-sm-4 -->
-
-                <div class="col-sm-4">
-
-                    <!-- service -->
-                    
-                    <div class="service">
-                        <div class="about-service">
-                            <p class="text-center"><img src="../static/boxerdog.gif" alt="Boxer Dog" height="90" width="90"></p>
-                            <h4 class="text-center">Submit an Image Link</h4>
-                            <p class="text-center">
-                                Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat ex eget sollicitudin eget.
+                        <!-- service -->
+                        <div class="service">
+                            <div class="about-service">
+                                <p class="text-center"><img src="../static/discodog.gif" alt="Disco Dog" height="90" width="90"></p>
+                                <h4 class="text-center">Upload a Photo</h4>
+                                <p class="text-center">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat ex eget sollicitudin eget.</p>
+                            
+                            </div>   
+                            <form action="" method="post" name="search" enctype="multipart/form-data">
+                            <p class="text-center">Please upload a dog image:<br>
+                            {{ formfile.fileName(size=40) }}<br></p>
+                            <p>Please enter your zipcode:<br>
+                            {{ formfile.zipcode(size=10) }}<br></p>
+                            <p>
+                            Search Radius?{{ formfile.radius }}
                             </p>
+                            <p class="text-center"><input type="submit" value="Search" style="font-face: 'Comic Sans MS'; font-size: larger; background-color:#a9a9a9" onclick="loading();"></p></form>
+                        </div>
 
+                    </div>
+                    <!-- col-sm-4 -->
+
+                    <div class="col-sm-4">
+
+                        <!-- service -->
                         
+                        <div class="service">
+                            <div class="about-service">
+                                <p class="text-center"><img src="../static/boxerdog.gif" alt="Boxer Dog" height="90" width="90"></p>
+                                <h4 class="text-center">Submit an Image Link</h4>
+                                <p class="text-center">
+                                    Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat ex eget sollicitudin eget.
+                                </p>
 
-                        </div>
-                        <form action="" method="post" name="search" enctype="multipart/form-data">
-                        <p class="text-center">Please enter a URL to a dog image:<br>
-                        {{ formweb.dogurl(size=40) }}<br></p>
-                        <p>Please enter your zipcode:<br>
-                        {{ formweb.zipcode(size=10) }}<br></p>
-                        <p>
-                        Search Radius?{{ formweb.radius }}
-                        </p>
-                        <p class="text-center"><input type="submit" value="Search" style="font-face: 'Comic Sans MS'; font-size: larger; background-color:#a9a9a9"></p></form>
-                    </div>
+                            
 
-
-
-                </div><!-- col-sm-4 -->
-
-                <div class="col-sm-4">
-
-                    <!-- service -->
-                    <div class="service">
-                        <div class="about-service">
-                            <p class="text-center"><img src="../static/labdog.gif" alt="Labrador Dog" height="90" width="90"></p>
-                            <h4 class="text-center">Interactive Matcher</h4>
-                            <p class="text-center">
-                                Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat ex eget sollicitudin eget.
+                            </div>
+                            <form action="" method="post" name="search" enctype="multipart/form-data">
+                            <p class="text-center">Please enter a URL to a dog image:<br>
+                            {{ formweb.dogurl(size=40) }}<br></p>
+                            <p>Please enter your zipcode:<br>
+                            {{ formweb.zipcode(size=10) }}<br></p>
+                            <p>
+                            Search Radius?{{ formweb.radius }}
                             </p>
-                        </div>
-                    </div>
-
-                </div><!-- col-sm-4 -->
-            </div><!-- row -->
-        </div><!-- section-content -->
-    </div><!-- container -->
-</div>
-</section>
-<!-- Service -->
-<!-- About Us -->
-<section id="about-us" class="section about-us">
-    <div class="container">
-
-        <!---->
-        <header class="section-heading">
-            <h2>About Us</h2>
-            <span>Everything you need to know about our Company</span>
-        </header><!-- section-heading -->
-        <!---->
-
-        <div class="section-content">
-            <div class="row">
-                <div class="col-sm-4">
-
-                    <!-- about-left -->
-                    <div class="about-content left">
-                        <h4>We're Creative</h4>
-                        <p>Lorem adipipsum idolor sit iamet, iconsectetur aisicing elit. Necessitatibus illo vel dolorum soluta consectetur doloribus sit. Delectus non tenetur odit dicta vitae debitis suscipitaut voluptas quaerat consectetur.</p>
-                    </div>
-
-                </div><!-- col-sm-4 -->
-
-                <div class="col-sm-4">
-
-                    <!-- about-center -->
-                    <figure class="about-content center">
-                        <img class="img-responsive center-block" src="../static/assets/images/about-us/center_image.jpg" alt="">
-                    </figure>
-
-                </div><!-- col-sm-4 -->
-
-                <div class="col-sm-4">
-
-                    <!-- about-right -->
-                    <div class="about-content right">
-                        <h4>We're Friendly</h4>
-                        <p>Lorem adipipsum dolor sit amet, consecteturno aisicing elit. Necessitatibus illo vel dolorumsa soluta consectetur doloribus sit. Delectus tenetur odit dicta vitae debitis  susc ipitaut voluptas quaerat dolorum.</p>
-                    </div>
-
-                </div><!-- col-sm-4 -->
-            </div><!-- row -->
-        </div><!-- section-content -->
-    </div><!-- container -->
-</section>
-<!-- /About Us -->
-
-
-<!-- Contact-us -->
-<section id="contact" class="section contact">
-    <div class="container">
-        <!---->
-        <header class="section-heading">
-            <h2> Feel free to drop us a line</h2>
-            <span>We are happy to listen</span>
-        </header>
-        <!---->
-
-        <div class="section-content">
-            <div class="row">
-                <div class="col-md-6 col-sm-5">
-                    <h5>Feel free to drop us a line!</h5>
-                    <form action="php/contact-form.php" class="contact-form" id="contactForm" method="post" name="contactform" role="form">
-
-                        <div class="form-group">
-                            <input class="form-control" id="name" name="name" placeholder="Your Name" type="text" required>
+                            <p class="text-center"><input type="submit" value="Search" style="font-face: 'Comic Sans MS'; font-size: larger; background-color:#a9a9a9"></p></form>
                         </div>
 
-                        <div class="form-group">
-                            <input class="form-control" id="email" name="email" placeholder="Email Address" type="email" required>
+
+
+                    </div><!-- col-sm-4 -->
+
+                    <div class="col-sm-4">
+
+                        <!-- service -->
+                        <div class="service">
+                            <div class="about-service">
+                                <p class="text-center"><img src="../static/labdog.gif" alt="Labrador Dog" height="90" width="90"></p>
+                                <h4 class="text-center">Interactive Matcher</h4>
+                                <p class="text-center">
+                                    Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat ex eget sollicitudin eget.
+                                </p>
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <textarea class="form-control" id="message" name="massage" placeholder="Type your message here" rows="5" required></textarea>
+                    </div><!-- col-sm-4 -->
+                </div><!-- row -->
+            </div><!-- section-content -->
+        </div><!-- container -->
+    </div>
+    </section>
+    <!-- Service -->
+    <!-- About Us -->
+    <section id="about-us" class="section about-us">
+        <div class="container">
+
+            <!---->
+            <header class="section-heading">
+                <h2>About Us</h2>
+                <span>Everything you need to know about our Company</span>
+            </header><!-- section-heading -->
+            <!---->
+
+            <div class="section-content">
+                <div class="row">
+                    <div class="col-sm-4">
+
+                        <!-- about-left -->
+                        <div class="about-content left">
+                            <h4>We're Creative</h4>
+                            <p>Lorem adipipsum idolor sit iamet, iconsectetur aisicing elit. Necessitatibus illo vel dolorum soluta consectetur doloribus sit. Delectus non tenetur odit dicta vitae debitis suscipitaut voluptas quaerat consectetur.</p>
                         </div>
 
-                        <div id="contactFormResponse"></div>
+                    </div><!-- col-sm-4 -->
 
-                        <button id="cfsubmit" type="submit" class="btn btn-dark btn-block contact-submit">Give us a shout</button>
+                    <div class="col-sm-4">
 
-                    </form>
-                </div>
-                <div class="col-md-6 col-sm-7">
-                    <h5>Find us on Google map</h5>
-                    <div class="google-map">
-                        <div id="map"></div>
-                    </div>
+                        <!-- about-center -->
+                        <figure class="about-content center">
+                            <img class="img-responsive center-block" src="../static/assets/images/about-us/center_image.jpg" alt="">
+                        </figure>
 
-                    <div class="row contact-info-wrap">
-                        <div class="col-sm-6">
-                            <div>
-                                <h5>Office Address</h5>
-                                <address class="contact-info">
-                                    <span>590 Castro St</span><br>
-                                    <span>Mountain View</span>,
-                                    <span>CA </span> -
-                                    <span>94041</span><br>
-                                    <span>United States</span>
-                                </address>
+                    </div><!-- col-sm-4 -->
+
+                    <div class="col-sm-4">
+
+                        <!-- about-right -->
+                        <div class="about-content right">
+                            <h4>We're Friendly</h4>
+                            <p>Lorem adipipsum dolor sit amet, consecteturno aisicing elit. Necessitatibus illo vel dolorumsa soluta consectetur doloribus sit. Delectus tenetur odit dicta vitae debitis  susc ipitaut voluptas quaerat dolorum.</p>
+                        </div>
+
+                    </div><!-- col-sm-4 -->
+                </div><!-- row -->
+            </div><!-- section-content -->
+        </div><!-- container -->
+    </section>
+    <!-- /About Us -->
+
+
+    <!-- Contact-us -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <!---->
+            <header class="section-heading">
+                <h2> Feel free to drop us a line</h2>
+                <span>We are happy to listen</span>
+            </header>
+            <!---->
+
+            <div class="section-content">
+                <div class="row">
+                    <div class="col-md-6 col-sm-5">
+                        <h5>Feel free to drop us a line!</h5>
+                        <form action="php/contact-form.php" class="contact-form" id="contactForm" method="post" name="contactform" role="form">
+
+                            <div class="form-group">
+                                <input class="form-control" id="name" name="name" placeholder="Your Name" type="text" required>
                             </div>
 
+                            <div class="form-group">
+                                <input class="form-control" id="email" name="email" placeholder="Email Address" type="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <textarea class="form-control" id="message" name="massage" placeholder="Type your message here" rows="5" required></textarea>
+                            </div>
+
+                            <div id="contactFormResponse"></div>
+
+                            <button id="cfsubmit" type="submit" class="btn btn-dark btn-block contact-submit">Give us a shout</button>
+
+                        </form>
+                    </div>
+                    <div class="col-md-6 col-sm-7">
+                        <h5>Find us on Google map</h5>
+                        <div class="google-map">
+                            <div id="map"></div>
                         </div>
-                        <div class="col-sm-6">
-                            <div>
-                                <h5>Contact Information</h5>
-                                <div class="contact-info">
-                                    Local: ( 33 1) 42 68 53 00<br>
-                                    Mobile: ( 33 1) 42 68 53 01<br>
-                                    info@themewagon.com
+
+                        <div class="row contact-info-wrap">
+                            <div class="col-sm-6">
+                                <div>
+                                    <h5>Office Address</h5>
+                                    <address class="contact-info">
+                                        <span>590 Castro St</span><br>
+                                        <span>Mountain View</span>,
+                                        <span>CA </span> -
+                                        <span>94041</span><br>
+                                        <span>United States</span>
+                                    </address>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <div>
+                                    <h5>Contact Information</h5>
+                                    <div class="contact-info">
+                                        Local: ( 33 1) 42 68 53 00<br>
+                                        Mobile: ( 33 1) 42 68 53 01<br>
+                                        info@themewagon.com
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -336,120 +337,119 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- Contact-us -->
+    </section>
+    <!-- Contact-us -->
 
-<!-- Footer widgets -->
-<section id="footer-widgets" class="section footer-widgets dark-bg">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-sm-6">
-                <div class="content-wrap widget-text">
-                    <h4>About the reign</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores dolorum eius libero nihil. Fugiat ipsum officia reprehenderit rerum saepe. Assumenda distinctio, voluptatibus. At consectetur cumque enim error laudantium mollitia obcaecati!</p>
+    <!-- Footer widgets -->
+    <section id="footer-widgets" class="section footer-widgets dark-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="content-wrap widget-text">
+                        <h4>About the reign</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores dolorum eius libero nihil. Fugiat ipsum officia reprehenderit rerum saepe. Assumenda distinctio, voluptatibus. At consectetur cumque enim error laudantium mollitia obcaecati!</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="content-wrap widget-contact">
-                    <h4>Contact info</h4>
-                    <ul>
-                        <li>
-                            <i class="ion-home"></i> 13005 Greenville California.
-                        </li>
-                        <li>
-                            <i class="ion-android-call"></i> (303) 674-7750
-                        </li>
-                        <li>
-                            <i class="ion-email"></i> info@yoursite.com
-                        </li>
-                        <li>
-                            <i class="ion-ios-location"></i> Map and Direction
-                        </li>
-                    </ul>
+                <div class="col-md-3 col-sm-6">
+                    <div class="content-wrap widget-contact">
+                        <h4>Contact info</h4>
+                        <ul>
+                            <li>
+                                <i class="ion-home"></i> 13005 Greenville California.
+                            </li>
+                            <li>
+                                <i class="ion-android-call"></i> (303) 674-7750
+                            </li>
+                            <li>
+                                <i class="ion-email"></i> info@yoursite.com
+                            </li>
+                            <li>
+                                <i class="ion-ios-location"></i> Map and Direction
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="content-wrap widget-recent-posts">
-                    <h4>Recent Posts</h4>
-                    <ul>
-                        <li>
-                            <a href="#" class="post-title">Lorem ipsum dolor sit amet</a>
-                            by <a href="#" class="author">Jhon Smith</a>
-                        </li>
-                        <li>
-                            <a href="#" class="post-title">Lorem ipsum dolor sit amet</a>
-                            by <a href="#" class="author">Jhon Smith</a>
-                        </li>
-                        <li>
-                            <a href="#" class="post-title">Lorem ipsum dolor sit amet</a>
-                            by <a href="#" class="author">Jhon Smith</a>
-                        </li>
-                    </ul>
+                <div class="col-md-3 col-sm-6">
+                    <div class="content-wrap widget-recent-posts">
+                        <h4>Recent Posts</h4>
+                        <ul>
+                            <li>
+                                <a href="#" class="post-title">Lorem ipsum dolor sit amet</a>
+                                by <a href="#" class="author">Jhon Smith</a>
+                            </li>
+                            <li>
+                                <a href="#" class="post-title">Lorem ipsum dolor sit amet</a>
+                                by <a href="#" class="author">Jhon Smith</a>
+                            </li>
+                            <li>
+                                <a href="#" class="post-title">Lorem ipsum dolor sit amet</a>
+                                by <a href="#" class="author">Jhon Smith</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <div class="content-wrap widget-gallery">
-                    <h4>Photo Gallery</h4>
-                    <div class="lightbox-gallery">
-                        <a href="../static/assets/images/work/01.jpg">
-                            <img src="../static/assets/images/work/01.jpg" alt=""/>
-                        </a>
-                        <a href="../static/assets/images/work/02.jpg">
-                            <img src="../static/assets/images/work/02.jpg" alt=""/>
-                        </a>
-                        <a href="../static/assets/images/work/03.jpg">
-                            <img src="../static/assets/images/work/03.jpg" alt=""/>
-                        </a>
-                        <a href="../static/assets/images/work/04.jpg">
-                            <img src="../static/assets/images/work/04.jpg" alt=""/>
-                        </a>
-                        <a href="../static/assets/images/work/05.jpg">
-                            <img src="../static/assets/images/work/05.jpg" alt=""/>
-                        </a>
-                        <a href="../static/assets/images/work/06.jpg">
-                            <img src="../static/assets/images/work/06.jpg" alt=""/>
-                        </a>
+                <div class="col-md-3 col-sm-6">
+                    <div class="content-wrap widget-gallery">
+                        <h4>Photo Gallery</h4>
+                        <div class="lightbox-gallery">
+                            <a href="../static/assets/images/work/01.jpg">
+                                <img src="../static/assets/images/work/01.jpg" alt=""/>
+                            </a>
+                            <a href="../static/assets/images/work/02.jpg">
+                                <img src="../static/assets/images/work/02.jpg" alt=""/>
+                            </a>
+                            <a href="../static/assets/images/work/03.jpg">
+                                <img src="../static/assets/images/work/03.jpg" alt=""/>
+                            </a>
+                            <a href="../static/assets/images/work/04.jpg">
+                                <img src="../static/assets/images/work/04.jpg" alt=""/>
+                            </a>
+                            <a href="../static/assets/images/work/05.jpg">
+                                <img src="../static/assets/images/work/05.jpg" alt=""/>
+                            </a>
+                            <a href="../static/assets/images/work/06.jpg">
+                                <img src="../static/assets/images/work/06.jpg" alt=""/>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- Footer widgets -->
-<!-- footer -->
-<footer id="footer" class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-sm-4">
-                <p class="copyright text-xs-center">&copy; 2015 Your company name</p>
-            </div>
+    </section>
+    <!-- Footer widgets -->
+    <!-- footer -->
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-4">
+                    <p class="copyright text-xs-center">&copy; 2015 Your company name</p>
+                </div>
 
-            <div class="col-md-5 col-sm-4">
-                <ul class="footer-social-block">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <div class="col-md-5 col-sm-4">
+                    <ul class="footer-social-block">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
 
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
 
-                    <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
 
-                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
 
-                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
 
-                    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
 
-                </ul>
-            </div>
+                    </ul>
+                </div>
 
-            <div class="col-md-4 col-sm-4">
-                <div class="footer-menu text-xs-center">
-                    <a href="#">Privacy Policy</a> | <a href="">Terms &amp; Conditions</a>
+                <div class="col-md-4 col-sm-4">
+                    <div class="footer-menu text-xs-center">
+                        <a href="#">Privacy Policy</a> | <a href="">Terms &amp; Conditions</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 </div>
 <!-- #footer -->
 
