@@ -2377,4 +2377,5 @@ div#loading {
     top: 0;
     left: 0;
     background: #000000;
-    z-index: 100000; }
+    z-index: 100000;
+    cursor: wait; }
