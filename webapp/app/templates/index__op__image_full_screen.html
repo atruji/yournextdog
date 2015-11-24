@@ -133,6 +133,8 @@
 <!-- /Header -->
 <!-- Service -->
 <section id="services" class="section services">
+    <div id="loading">Please Wait</div>
+    <div id="content">
     <div class="container">
 
         <!---->
@@ -141,7 +143,7 @@
             <h4>How would you like to search? </h4>
         </header>
         <!---->
-        <div id="loading">Please Wait</div>
+
         <div class="section-content">
             <div class="row">
                 <div class="col-sm-4">
@@ -165,7 +167,8 @@
                         <p class="text-center"><input type="submit" value="Search" style="font-face: 'Comic Sans MS'; font-size: larger; background-color:#a9a9a9" onclick="loading();"></p></form>
                     </div>
 
-                </div><!-- col-sm-4 -->
+                </div>
+                </<!-- col-sm-4 -->
 
                 <div class="col-sm-4">
 
@@ -214,6 +217,7 @@
             </div><!-- row -->
         </div><!-- section-content -->
     </div><!-- container -->
+</div>
 </section>
 <!-- Service -->
 <!-- About Us -->
@@ -463,6 +467,12 @@
 <script src="../static/assets/lib/magnific-popup/dist/jquery.magnific-popup.js"></script>
 
 <script src="../static/assets/js/main.js"></script>
+
+<script type="text/javascript">// <![CDATA[
+        function loading(){
+            $("#loading").show();
+            $("#content").hide();       
+        }
 
 <!--[if lt IE 10]>
 <script>
