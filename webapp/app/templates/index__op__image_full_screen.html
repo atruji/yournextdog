@@ -133,10 +133,6 @@
 <!-- /Header -->
 <!-- Service -->
 <section id="services" class="section services">
-    <div id="loading"><div class="page-loader">
-    <div class="loader">Loading...</div>
-</div></div>
-    <div id="content">
     <div class="container">
 
         <!---->
@@ -158,7 +154,7 @@
                             <p class="text-center">Praesent dapibus eleifend aug eget sollicitudin velit malesuada Aliquam blandit diam feugiat ex eget sollicitudin eget.</p>
                         
                         </div>   
-                        <form action="" method="post" name="search" enctype="multipart/form-data">
+                        <form action="./tester.html" method="post" name="search" enctype="multipart/form-data">
                         <p class="text-center">Please upload a dog image:<br>
                         {{ formfile.fileName(size=40) }}<br></p>
                         <p>Please enter your zipcode:<br>
@@ -166,11 +162,11 @@
                         <p>
                         Search Radius?{{ formfile.radius }}
                         </p>
-                        <p class="text-center"><input type="submit" value="Search" style="font-face: 'Comic Sans MS'; font-size: larger; background-color:#a9a9a9" onclick="loading();"></p></form>
+                        <p class="text-center"><input type="submit" value="Search" style="font-face: 'Comic Sans MS'; font-size: larger; background-color:#a9a9a9"></p></form>
                     </div>
 
                 </div>
-                </<!-- col-sm-4 -->
+                <!-- col-sm-4 -->
 
                 <div class="col-sm-4">
 
@@ -219,7 +215,6 @@
             </div><!-- row -->
         </div><!-- section-content -->
     </div><!-- container -->
-</div>
 </section>
 <!-- Service -->
 <!-- About Us -->
@@ -470,12 +465,7 @@
 
 <script src="../static/assets/js/main.js"></script>
 
-  <script type="text/javascript">// <![CDATA[
-        function loading(){
-            $(".page-loader div").fadeOut();;
-            $(".page-loader").delay(200).fadeOut("slow");       
-        }
-// ]]></script>
+
 
 <!--[if lt IE 10]>
 <script>
