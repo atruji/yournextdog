@@ -2370,6 +2370,7 @@ blockquote p {
       font-weight: bold; }
 
 div#loading {
+    background: #000000
     width: 200px;
     height: 35px;
     display: none;
