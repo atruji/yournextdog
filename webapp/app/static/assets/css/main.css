@@ -2368,3 +2368,11 @@ blockquote p {
     vertical-align: middle; }
     .four-o-four .four-o-four-inner h1 {
       font-weight: bold; }
+
+div#loading {
+    width: 200px;
+    height: 35px;
+    display: none;
+    background: url(../static/ajax-loader.gif) no-repeat;
+    cursor: wait;
+    }
