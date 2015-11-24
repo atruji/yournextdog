@@ -88,4 +88,8 @@ def get_results():
 
 	data = zip(images,names,genders,ages,match_scores,profile_pages)
 	return render_template('results.html', data=data)
+
+@app.route('/loading', methods=['POST'])
+def display_loading():
+	return render_template('tester.html')
     
