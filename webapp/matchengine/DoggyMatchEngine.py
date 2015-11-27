@@ -80,9 +80,6 @@ class DoggyMatchEngine(object):
 		self.geo_ids_lst = [x[0] for x in filtered]
 		self.geo_feature_lst = [x[1] for x in filtered]
 
-		print len(self.geo_feature_lst)
-		print self.geo_feature_lst[0]
-
 		sim_scores = pairwise_distances(np.array(self.user_features),np.array(self.geo_feature_lst),'cosine', n_jobs=-1)
 		sim_scores = np.array(sim_scores).flatten()
 		ids = np.array(self.geo_ids_lst)
@@ -129,7 +126,7 @@ class DoggyMatchEngine(object):
 		img_data = []
 		for x,val in enumerate(self.top10_ids):
 			self.psql.execute(
-			'''select name,gender,age,city,state,zip from data where id='%s';  
+			'''select name,gender,age,city,state,zip from records where id='%s';  
 			''' % val)
 			img_details = self.psql.fetchall()[0]
 			key = val.encode('ascii','ignore')+'.jpg'
