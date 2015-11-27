@@ -33,7 +33,7 @@ class DoggyMatchEngine(object):
 		if "http" in user_input or "https" in user_input:
 			r = requests.get(user_input, stream=True)
 			if r.status_code == 200:
-				rand_name = 'tmp/img_'+session_id+'.jpg'
+				rand_name = 'app/static/uploads/img_'+session_id+'.jpg'
 				with open(rand_name, 'wb') as f:
 					r.raw.decode_content = True
 					shutil.copyfileobj(r.raw, f)
@@ -47,7 +47,7 @@ class DoggyMatchEngine(object):
 			raise Exception('Img too small to process.')
 		imgr = resize(img,[221,221])
 		self.orig_file = img_file
-		img_file = img_file.replace('tmp/','tmp/r_')
+		img_file = img_file.replace('app/static/uploads/','app/static/uploads/r_')
 		imsave(img_file,imgr)
 		if self.GPU:
 			p = subprocess.check_output(["/OverFeat/bin/linux_64/cuda/overfeat_cuda", "-f", "-l", img_file])

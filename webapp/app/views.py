@@ -79,7 +79,7 @@ def get_results():
 	matcher.results()
 
 	if request.args.get('searchtype')=='web':
-		user_file = '../../' + matcher.orig_file
+		user_file = matcher.orig_file.replace('app/','../')
 	else: 
 		user_file = dog_url.replace('app/','../')
 	df = matcher.df
