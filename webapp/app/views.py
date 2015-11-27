@@ -87,7 +87,7 @@ def get_results():
 	profile_pages = ["https://www.petfinder.com/petdetail/"+x for x in ids]
 
 	data = zip(images,names,genders,ages,match_scores,profile_pages)
-	return render_template('results.html', data=data, user_img=dogurl)
+	return render_template('results.html', data=data, user_img=dog_url)
 
 @app.route('/loading', methods=['POST'])
 def display_loading():
