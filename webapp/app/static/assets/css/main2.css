@@ -2382,16 +2382,15 @@ div#loading {
 { 
    width: 250px;
    max-width: 250px; 
-   display: inline-block;
    border-style: solid;
   border-width: 3px;
 }
 
 #myDiv 
 {
-  height:104px;
-  width:140px;
-display: inline-block;
+  height:154px;
+  width:190px;
+  display: inline-block;
 
  
 }
@@ -2407,7 +2406,7 @@ border-style: solid;
 }
 
 var logoHeight = $('#myDiv img').height();
-    if (logoHeight < 104) {
-        var margintop = (104 - logoHeight) / 2;
+    if (logoHeight < 154) {
+        var margintop = (154 - logoHeight) / 2;
         $('#myDiv img').css('margin-top', margintop);
     }
