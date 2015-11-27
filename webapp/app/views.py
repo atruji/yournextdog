@@ -31,6 +31,7 @@ def search():
 	formweb = SearchFormWeb()
 	valid, ftype = form_validate(formfile,formweb)
 	if valid and ftype=='SearchFormFile':
+		searchtype='file'
 		filename = secure_filename(formfile.fileName.data.filename)
 		if filename and allowed_file(filename): 
 			file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
@@ -48,6 +49,7 @@ def search():
 		return redirect(url_for('get_results',sess_id=session_id,zipcode=user_zip,img=user_file,radius=radius))
 	
 	elif valid and ftype=='SearchFormWeb':
+		searchtype='web'
 		user_file = formweb.dogurl.data
 		session_id = str(random.randint(1,999999))
 		user_zip = formweb.zipcode.data
@@ -56,7 +58,7 @@ def search():
 		else:
 			radius = 500
 		print user_file, session_id, user_zip, radius
-		return redirect(url_for('get_results',sess_id=session_id,zipcode=user_zip,img=user_file,radius=radius))
+		return redirect(url_for('get_results',sess_id=session_id,zipcode=user_zip,img=user_file,radius=radius, searchtype=searchtype))
 	#elif form.errors:
 	#	flash(form.errors)	
 	return render_template('index__op__image_full_screen.html', 
@@ -70,12 +72,16 @@ def get_results():
 	session_id = request.args.get('sess_id')
 	user_zip = request.args.get('zipcode')
 	dog_url = request.args.get('img')
-	user_file = dog_url.replace('app/','../')
 	user_radius = request.args.get('radius')
 	matcher = DoggyMatchEngine(GPU=False)
 	matcher.fit(dog_url,session_id)
 	matcher.match(user_zip,user_radius)
 	matcher.results()
+
+	if request.args.get('searchtype')=='web':
+		user_file = '../../' + matcher.orig_file
+	else: 
+		user_file = dog_url.replace('app/','../')
 	df = matcher.df
 	images = df['img_loc'].values
 	names = df['name'].values
