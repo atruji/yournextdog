@@ -47,7 +47,7 @@ class DoggyMatchEngine(object):
 			raise Exception('Img too small to process.')
 		imgr = resize(img,[221,221])
 		self.orig_file = img_file
-		img_file = 'r_'+img_file
+		img_file = img_file.replace('tmp/','tmp/r_')
 		imsave(img_file,imgr)
 		if self.GPU:
 			p = subprocess.check_output(["/OverFeat/bin/linux_64/cuda/overfeat_cuda", "-f", "-l", img_file])
