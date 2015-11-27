@@ -2377,3 +2377,12 @@ div#loading {
     background: url(../static/ajax-loader.gif) no-repeat;
     cursor: wait;
     }
+
+.picbox
+{
+   width:100px; 
+   max-width:100px; 
+   display: inline-block;
+   border-style: solid;
+  border-width: 3px;
+}
