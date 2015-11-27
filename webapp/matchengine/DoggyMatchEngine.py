@@ -19,7 +19,7 @@ def test_split(in_val):
 
 class DoggyMatchEngine(object):
 	def __init__(self, GPU=True):
-		self.conn = psycopg2.connect(dbname='doggies', user='ubuntu')
+		self.conn = psycopg2.connect(dbname='dogs', user='ubuntu')
 		self.psql = self.conn.cursor()
 		self.features = []
 		self.GPU = GPU
