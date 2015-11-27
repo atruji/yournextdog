@@ -68,15 +68,15 @@ class DoggyMatchEngine(object):
 		user_lat = lnglat[0][1]
 
 		self.psql.execute(
-			'''select id,features from data where ST_Distance_Sphere(geom, ST_MakePoint(%s, %s))*0.000621371 < %s;  
+			'''select id,features_bin from records where ST_Distance_Sphere(geom, ST_MakePoint(%s, %s))*0.000621371 < %s;  
 			''' % (user_long,user_lat,user_radius)
 			)
 		filtered = self.psql.fetchall()
 
-		pool = mp.Pool(8)
-		rec_tuple = pool.map(test_split,filtered)
-		self.geo_ids_lst = [x[0] for x in rec_tuple]
-		self.geo_feature_lst = [x[1] for x in rec_tuple]
+		#pool = mp.Pool(8)
+		#rec_tuple = pool.map(test_split,filtered)
+		self.geo_ids_lst = [x[0] for x in filtered]
+		self.geo_feature_lst = [x[1] for x in filtered]
 
 		sim_scores = pairwise_distances(np.array(self.user_features),np.array(self.geo_feature_lst),'cosine', n_jobs=-1)
 		sim_scores = np.array(sim_scores).flatten()
