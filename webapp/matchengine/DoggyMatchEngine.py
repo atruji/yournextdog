@@ -27,7 +27,6 @@ class DoggyMatchEngine(object):
 
 	def fit(self,user_input,session_id):
 		self.session_id=session_id
-		print os.getcwd()
 		if "http" in user_input or "https" in user_input:
 			r = requests.get(user_input, stream=True)
 			if r.status_code == 200:
@@ -77,6 +76,9 @@ class DoggyMatchEngine(object):
 		#rec_tuple = pool.map(test_split,filtered)
 		self.geo_ids_lst = [x[0] for x in filtered]
 		self.geo_feature_lst = [x[1] for x in filtered]
+
+		print len(self.geo_feature_lst)
+		print self.geo_feature_lst[0]
 
 		sim_scores = pairwise_distances(np.array(self.user_features),np.array(self.geo_feature_lst),'cosine', n_jobs=-1)
 		sim_scores = np.array(sim_scores).flatten()
