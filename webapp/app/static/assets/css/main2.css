@@ -2391,15 +2391,16 @@ div#loading {
 {
   height:104px;
   width:140px;
-  border-style: solid;
-  border-width: 3px;
+ 
 }
 #myDiv img
 {
   max-width:100%; 
   max-height:100%;
   margin:auto;
-  display:block; 
+  display:block;
+  border-style: solid;
+  border-width: 3px;
 
 }
 
