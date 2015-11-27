@@ -2391,6 +2391,8 @@ div#loading {
 {
   height:104px;
   width:140px;
+display: inline-block;
+
  
 }
 #myDiv img
@@ -2399,7 +2401,7 @@ div#loading {
   max-height:100%;
   margin:auto;
   display:block;
-  border-style: solid;
+border-style: solid;
   border-width: 3px;
 
 }
