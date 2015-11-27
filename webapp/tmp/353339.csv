@@ -1,0 +1,11 @@
+,id,img_loc,score,name,gender,age,city,state,zip
+0,33574485_3,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33574485_3.jpg?Signature=gPcCn%2F9WkPrf3Yd43TU0wJMz%2Btk%3D&Expires=1448443923&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.151825708002,Harley,M,Adult,Yuba City,CA,95991
+1,32883001_3,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/32883001_3.jpg?Signature=FUp0QhakWfU%2Bx8qnOADrc3JJQRo%3D&Expires=1448443923&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.154751236417,Sebastian,M,Young,Oakley,CA,94561
+2,33453381_3,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33453381_3.jpg?Signature=cR2cfat4%2FZWUYhjZWmCpVA8eC%2Fk%3D&Expires=1448443923&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.157067835041,Milo,M,Young,Walnut Creek,CA,94598
+3,32914855_3,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/32914855_3.jpg?Signature=xr8QeqFOg%2BtP31NePUx%2BAAuqy9Y%3D&Expires=1448443923&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.160739383434,Casper,M,Senior,Cotati,CA,94931
+4,32647267_1,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/32647267_1.jpg?Signature=3N%2FnoNaY5hrAlmr6eU5X%2FQMoCNQ%3D&Expires=1448443923&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.165528863432,Paloma,F,Senior,South San Francisco,CA,94080
+5,31333096_1,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/31333096_1.jpg?Signature=yXL%2FOI%2BNFooE7cdysMQXsoXRinQ%3D&Expires=1448443923&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.165570283892,Lulu,F,Young,Penngrove,CA,94951
+6,30882316_3,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/30882316_3.jpg?Signature=VpvtfeGjkS3Kine86eyfTDiq998%3D&Expires=1448443923&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.167117064382,Lulu,F,Adult,Half Moon Bay,CA,94019
+7,30906636_2,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/30906636_2.jpg?Signature=lsyocHTjuNDIpbzVmws%2BA87WS5o%3D&Expires=1448443923&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.167117064382,Trixie,F,Adult,Half Moon Bay,CA,94019
+8,33497700_2,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33497700_2.jpg?Signature=2sxXzSdgFxIuTptIRTxrpSBBIF0%3D&Expires=1448443923&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.170409392995,Sue Ellen,F,Adult,Lakeport,CA,95453
+9,33522417_2,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33522417_2.jpg?Signature=mXIBUSGXN9XTrxNWkO%2FQqHzjn2I%3D&Expires=1448443923&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.170471545139,Milo,M,Adult,Berkeley,CA,94702

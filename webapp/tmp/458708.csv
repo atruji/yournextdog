@@ -1,0 +1,11 @@
+,id,img_loc,score,name,gender,age,city,state,zip
+0,32740291_3,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/32740291_3.jpg?Signature=NhL%2FRvCfiHjsNwicAjTGqkiuKS8%3D&Expires=1448614402&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.102797635332,Max,M,Adult,Antioch,CA,94531
+1,32572756_3,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/32572756_3.jpg?Signature=89sW3QPZ%2FFwanTLApcJEXtMQ%2BHo%3D&Expires=1448614402&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.107255181962,Romulus (Romy),M,Young,San Jose,CA,95118
+2,32572768_3,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/32572768_3.jpg?Signature=Q6LOZLuyIzz3hI79l9gjuQn8Bo0%3D&Expires=1448614402&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.107255181962,Remus (Remy),M,Young,San Jose,CA,95118
+3,33194378_1,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33194378_1.jpg?Signature=Hp3j6mhTZC2LRX9d6snlD9wzisk%3D&Expires=1448614402&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.109535557588,Poco,M,Senior,Lodi,CA,95241
+4,32001039_1,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/32001039_1.jpg?Signature=f%2F%2B%2FvYvF6m19QrXpWqhAvCxXOpM%3D&Expires=1448614402&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.116185513779,Sandy,F,Senior,Antioch,CA,94531
+5,33651069_1,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33651069_1.jpg?Signature=V%2BvArzkkQFdy0fSVCnsVb2imlI0%3D&Expires=1448614402&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.116713687982,Tiny Tim,M,Adult,Oakdale,CA,95361
+6,33664808_2,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33664808_2.jpg?Signature=J%2FNW0P%2F6nXb%2Fr1FFEur2FdN7qsI%3D&Expires=1448614402&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.117120651546,Russell,M,Young,Monterey,CA,93940
+7,33194608_2,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33194608_2.jpg?Signature=hwZToXGrTV7ETmi1Mey70HiVos4%3D&Expires=1448614402&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.11939694457,Teddy,M,Baby,Winters,CA,95694
+8,33622760_1,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33622760_1.jpg?Signature=XXLN4SdPoA92GQU6SMa0H9dYTTE%3D&Expires=1448614402&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.122047921925,Cayenne,F,Baby,Pleasanton,CA,94588
+9,33616767_2,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33616767_2.jpg?Signature=xBNy5ylGiStXRuTqvk6X0E5r51k%3D&Expires=1448614402&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.125618530156,Ralph,M,Baby,Los Banos,CA,93635

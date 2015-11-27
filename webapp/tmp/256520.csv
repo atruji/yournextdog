@@ -1,0 +1,11 @@
+,id,img_loc,score,name,gender,age,city,state,zip
+0,33359761_1,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33359761_1.jpg?Signature=W5uFYLENWQ3i4%2BlNpYmqZp6hZ2M%3D&Expires=1448617099&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.0950469336258,Cheyenne,F,Adult,Modesto,CA,95357
+1,32572768_1,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/32572768_1.jpg?Signature=HEy3qDJBzMEBSrGpKtU0ssP2XrM%3D&Expires=1448617099&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.128766964755,Remus (Remy),M,Young,San Jose,CA,95118
+2,32844447_1,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/32844447_1.jpg?Signature=IVoOuGIOIYcvGUPhIeFDqFegaHg%3D&Expires=1448617099&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.129441793656,Cruise,M,Young,Lodi,CA,95241
+3,33473676_1,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33473676_1.jpg?Signature=vz3RhxFPvN5rvOfQpXcYGCBC6yI%3D&Expires=1448617099&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.137474575059,Izzie,F,Young,Santa Rosa,CA,95401
+4,32385117_2,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/32385117_2.jpg?Signature=q8suicB5E6w3ux%2Flf40CYGj7yR4%3D&Expires=1448617099&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.140140261497,Frankie,M,Young,Santa Rosa,CA,95401
+5,33082483_2,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33082483_2.jpg?Signature=TSUpQ2x6rSd7kJTxmA910lwVkiI%3D&Expires=1448617099&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.141005498392,Hank,M,Adult,CASTRO VALLEY,CA,94546
+6,32572756_3,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/32572756_3.jpg?Signature=MZfk7Pc54lwdINOp%2Fzq6%2BKo25r0%3D&Expires=1448617099&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.144862841264,Romulus (Romy),M,Young,San Jose,CA,95118
+7,33623252_1,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33623252_1.jpg?Signature=ryqwSw%2FL%2B2eaiQBoM6IyykvmZvA%3D&Expires=1448617099&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.146920644864,Becca,F,Adult,Manteca,CA,95337
+8,32996032_1,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/32996032_1.jpg?Signature=3eJ5xHeUWxJsfinf%2FpCK9k8c1%2FQ%3D&Expires=1448617099&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.146997987304,Taylor,F,Adult,Lodi,CA,95241
+9,33653425_3,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33653425_3.jpg?Signature=IcxPHRSEmrB5NulVEJJ3QKRoEDQ%3D&Expires=1448617099&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.147949469511,Adele,F,Baby,Yuba City,CA,95991

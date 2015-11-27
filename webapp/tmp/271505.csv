@@ -1,0 +1,11 @@
+,id,img_loc,score,name,gender,age,city,state,zip
+0,32943931_1,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/32943931_1.jpg?Signature=dU4UzCE%2BvbBUITSmmFNOQXhqDjM%3D&Expires=1448616534&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.127800563005,Misty,F,Adult,Redwood City,CA,94063
+1,33478613_2,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33478613_2.jpg?Signature=q34r%2F8G4%2FxoD6MZAa%2Bg2AQgSeQQ%3D&Expires=1448616534&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.162679489885,Henna,F,Senior,San Francisco,CA,94115
+2,33478742_2,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33478742_2.jpg?Signature=sRBm%2F9AIbpUDR4VOM3VXnHFSN0Q%3D&Expires=1448616534&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.168127999996,Angus,M,Adult,San Francisco,CA,94115
+3,32844347_1,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/32844347_1.jpg?Signature=IokaSgmFvJex3JBle38oe3QCd8c%3D&Expires=1448616534&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.168192281485,Sam,M,Adult,Los Banos,CA,93635
+4,33603420_3,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33603420_3.jpg?Signature=jMpIBMsOwJyTH2I34hrxphpXt8Y%3D&Expires=1448616534&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.178706400091,Pringle,M,Young,Penngrove,CA,94951
+5,32644211_1,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/32644211_1.jpg?Signature=rVgo0KVESxBOapH191Y5O6Wa6ds%3D&Expires=1448616534&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.184469171957,Hanna,F,Adult,San Jose,CA,95128
+6,32673023_3,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/32673023_3.jpg?Signature=f5URigoIcXP7RCcjv%2B%2BlGhIfSzs%3D&Expires=1448616534&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.187092307006,Canella,F,Young,Palo Alto,CA,94306
+7,33623252_2,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33623252_2.jpg?Signature=eDU4pvoi3n5Y96hrNg2Pci7W5cE%3D&Expires=1448616534&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.189479353289,Becca,F,Adult,Manteca,CA,95337
+8,33539319_1,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33539319_1.jpg?Signature=0oaS5ozm9OB5B9OQ2iyaRmYx%2FmI%3D&Expires=1448616534&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.191937244952,Darcy,F,Young,Oakland,CA,94602
+9,33618904_1,https://akiajrrhy72f4guygb7-1.s3.amazonaws.com/33618904_1.jpg?Signature=xuI6cqil1B4SK5IahmKI3evj23A%3D&Expires=1448616534&AWSAccessKeyId=AKIAIA4SL4BMUUBAWR5Q,0.195821814123,Buddy,M,Senior,Napa,CA,94559

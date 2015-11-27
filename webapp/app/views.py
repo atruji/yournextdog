@@ -70,6 +70,7 @@ def get_results():
 	session_id = request.args.get('sess_id')
 	user_zip = request.args.get('zipcode')
 	dog_url = request.args.get('img')
+	user_file = dog_url.replace('app/','../')
 	user_radius = request.args.get('radius')
 	matcher = DoggyMatchEngine(GPU=False)
 	matcher.fit(dog_url,session_id)
@@ -87,7 +88,7 @@ def get_results():
 	profile_pages = ["https://www.petfinder.com/petdetail/"+x for x in ids]
 
 	data = zip(images,names,genders,ages,match_scores,profile_pages)
-	return render_template('results.html', data=data, user_img=dog_url)
+	return render_template('results.html', data=data, user_img=user_file)
 
 @app.route('/loading', methods=['POST'])
 def display_loading():
