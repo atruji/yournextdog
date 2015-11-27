@@ -8,6 +8,7 @@ from skimage.io import imread,imsave
 from skimage.transform import resize
 from sklearn.metrics.pairwise import pairwise_distances
 from collections import Counter
+from binarize import BinarizeArray
 import subprocess
 import multiprocessing as mp
 import re
@@ -23,6 +24,8 @@ class DoggyMatchEngine(object):
 		self.psql = self.conn.cursor()
 		self.features = []
 		self.GPU = GPU
+		self.binar = BinarizeArray()
+		self.binar.run()
 
 
 	def fit(self,user_input,session_id):
