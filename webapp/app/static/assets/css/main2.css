@@ -2391,8 +2391,6 @@ div#loading {
 {
   height:104px;
   width:140px;
-  border-style: solid;
-  border-width: 3px;
 }
 #myDiv img
 {
@@ -2400,6 +2398,9 @@ div#loading {
   max-height:100%;
   margin:auto;
   display:block;
+  border-style: solid;
+  border-width: 3px;
+
 }
 
 var logoHeight = $('#myDiv img').height();
