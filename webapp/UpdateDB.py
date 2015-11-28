@@ -76,7 +76,7 @@ class NightlyUpdate(object):
 			jres1 = json.loads(res1)
 			tally+=1
 			if not jres1['petfinder']['pets']:
-				return None,None
+				return None,tally
 			if len(jres1['petfinder']['pets']['pet']) < 1000:
 				allpets = jres1['petfinder']['pets']['pet']
 			else:
