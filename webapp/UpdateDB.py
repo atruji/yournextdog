@@ -71,8 +71,6 @@ class NightlyUpdate(object):
 				z1 = requests.get('http://api.petfinder.com/shelter.getPets?key=7d43f07af007bb1dc8c1bdb73508271e&id='+shelter+'&output=full&format=json&count=1000')
 			else:
 				z1 = requests.get('http://api.petfinder.com/shelter.getPets?key=26f1671619da6ad88c07df6628f24cdd&id='+shelter+'&output=full&format=json&count=1000')
-			if z1.status_code !=200:
-				
 			res1 = z1.content.replace('$','')
 			jres1 = json.loads(res1)
 			tally+=1
