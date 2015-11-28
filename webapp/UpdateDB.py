@@ -6,20 +6,21 @@ import os
 import boto
 import pandas as pd
 import psycopg2
+import json
 
 class NightlyUpdate(object):
 	def __init__(self):
 		self.client = MongoClient()
-		self.db = client.pet
-		self.shelter_coll = db.shelter
-		self.dogs_coll = db.dog
-		self.err_coll = db.errs
-		self.conn = psycopg2.connect(dbname='dogs', user='ubuntu')
-		self.psql = self.conn.cursor()
+		self.db = self.client.pet
+		self.shelter_coll = self.db.shelter
+		self.dogs_coll = self.db.dog
+		self.err_coll = self.db.errs
+		#self.conn = psycopg2.connect(dbname='dogs', user='ubuntu')
+		#self.psql = self.conn.cursor()
 		self.states=['AL','AK','AZ','AR','CA','CO','CT','DE','DC','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','PR','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY',]
 		self.botoconn = boto.connect_s3(os.environ['access_key'], os.environ['access_secret_key'])
 		bucket_name = os.environ['bucket_name']
-		self.bucket = conn.get_bucket(bucket_name)
+		self.bucket = self.botoconn.get_bucket(bucket_name)
 		#self.socks_port = 9050
 		#self.tor_process = stem.process.launch_tor_with_config(config = {'SocksPort': str(self.socks_port)})
 
@@ -30,12 +31,20 @@ class NightlyUpdate(object):
 				try:
 					print "Inserting shelter " + str(shelter['name']['t'].encode('ascii','ignore'))
 					collection.insert_one(shelter)
-				except errors.DuplicateKeyError:
-					print "Duplicates"
+				except:
+					pass
 
 		def get_state_shelters(state):
-			z1 = requests.get('http://api.petfinder.com/shelter.find?key=7d43f07af007bb1dc8c1bdb73508271e&location='+state+'&output=full&format=json&count=1000')
-			z2 = requests.get('http://api.petfinder.com/shelter.find?key=7d43f07af007bb1dc8c1bdb73508271e&location='+state+'&output=full&format=json&count=1000&offset=1000')
+			unfilled = True
+			while unfilled:
+				z1 = requests.get('http://api.petfinder.com/shelter.find?key=7d43f07af007bb1dc8c1bdb73508271e&location='+state+'&output=full&format=json&count=1000')
+				if z1.status_code==200:
+					unfilled = False
+			unfilled = True
+			while unfilled:
+				z2 = requests.get('http://api.petfinder.com/shelter.find?key=7d43f07af007bb1dc8c1bdb73508271e&location='+state+'&output=full&format=json&count=1000&offset=1000')
+				if z2.status_code==200:
+					unfilled = False
 			res1 = z1.content.replace('$','')
 			res2 = z2.content.replace('$','')
 			jres1 = json.loads(res1)
@@ -48,10 +57,15 @@ class NightlyUpdate(object):
 		for x in self.states:
 			shelters = get_state_shelters(x)
 			for i in shelters:
-				insert_shelter(i,coll)
+				insert_shelter(i,self.shelter_coll)
 
 	def updateDogRecs(self):
-
+		def insert_dog(dog, collection):
+			if not collection.find_one({"id" : {'t': dog['id']['t']}}):
+				try:
+					collection.insert_one(dog)
+				except:
+					pass
 		def get_dogs_by_shelter(shelter):
 			z1 = requests.get('http://api.petfinder.com/shelter.getPets?key=26f1671619da6ad88c07df6628f24cdd&id='+shelter+'&output=full&format=json&count=1000')
 			res1 = z1.content.replace('$','')
@@ -80,11 +94,6 @@ class NightlyUpdate(object):
 					dogs.append(allpets[x])
 			return dogs, num_requests
 
-		def insert_dog(dog, collection):
-			if not collection.find_one({"id" : {'t': dog['id']['t']}}):
-				try:
-					collection.insert_one(dog)
-		
 		shelter_lst=[]
 		for shelter in self.shelter_coll.find():
 			shelter_lst.append(shelter['id']['t'])
@@ -116,17 +125,23 @@ class NightlyUpdate(object):
 		def crossRefSQL(self):
 			self.psql.execute('select id from records;')
 			sql_lst = [x[0] for x in self.psql.fetchall()]
-			new_dog_imgs = [x if x not in sql_lst for x in self.dog_img_lst]
-			outdated_dog_imgs = [x if x not in self.dog_img_lst for x in sql_lst]
+			new_dog_imgs = []
+			for x in self.dog_img_lst:
+				if x not in sql_lst:
+					new_dog_imgs.append(x)
+			outdated_dog_imgs = []
+			for x in sql_lst:
+				if x not in self.dog_img_lst:
+					outdated_dog_imgs.append(x)
 			for x in outdated_dog_imgs:
-				self.psql.execute('delete from records where id='%s'', x)
+				self.psql.execute('''delete from records where id='%s';''' % x)
 				self.conn.commit()
 				#key = x.encode('ascii','ignore')+'.jpg'    
 				#self.bucket.delete_key(key)
 			self.new_dog_img_dict =[]
 			for x in new_dog_imgs:
 				self.new_dog_img_dict[x] = self.dog_img_dict[x]
-		def downloadNewImages:
+		def downloadNewImages():
 			self.success = []
 			for x in self.new_dog_img_dict.keys():
 				try:
