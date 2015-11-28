@@ -66,20 +66,28 @@ class NightlyUpdate(object):
 					collection.insert_one(dog)
 				except:
 					pass
-		def get_dogs_by_shelter(shelter):
-			z1 = requests.get('http://api.petfinder.com/shelter.getPets?key=26f1671619da6ad88c07df6628f24cdd&id='+shelter+'&output=full&format=json&count=1000')
+		def get_dogs_by_shelter(shelter, tally):
+			if tally < 5604:
+				z1 = requests.get('http://api.petfinder.com/shelter.getPets?key=7d43f07af007bb1dc8c1bdb73508271e&id='+shelter+'&output=full&format=json&count=1000')
+			else:
+				z1 = requests.get('http://api.petfinder.com/shelter.getPets?key=26f1671619da6ad88c07df6628f24cdd&id='+shelter+'&output=full&format=json&count=1000')
+			if z1.status_code !=200:
+				
 			res1 = z1.content.replace('$','')
 			jres1 = json.loads(res1)
-			num_requests = 1
+			tally+=1
 			if not jres1['petfinder']['pets']:
 				return None,None
 			if len(jres1['petfinder']['pets']['pet']) < 1000:
 				allpets = jres1['petfinder']['pets']['pet']
 			else:
-				z2 = requests.get('http://api.petfinder.com/shelter.getPets?key=26f1671619da6ad88c07df6628f24cdd&id='+shelter+'&output=full&format=json&count=1000&offset=1000')
+				if tally <5604:
+					z2 = requests.get('http://api.petfinder.com/shelter.getPets?key=7d43f07af007bb1dc8c1bdb73508271e&id='+shelter+'&output=full&format=json&count=1000&offset=1000')
+				else:
+					z2 = requests.get('http://api.petfinder.com/shelter.getPets?key=26f1671619da6ad88c07df6628f24cdd&id='+shelter+'&output=full&format=json&count=1000&offset=1000')
 				res2 = z2.content.replace('$','')
 				jres2 = json.loads(res2)
-				num_requests = 2
+				tally+=1
 			
 				if not jres2['petfinder']['pets']:
 					allpets = jres1['petfinder']['pets']['pet']
@@ -92,24 +100,23 @@ class NightlyUpdate(object):
 			for x in xrange(len(allpets)):
 				if allpets[x]['animal']['t']=='Dog':
 					dogs.append(allpets[x])
-			return dogs, num_requests
+			return dogs, tally
 
 		shelter_lst=[]
 		for shelter in self.shelter_coll.find():
 			shelter_lst.append(shelter['id']['t'])
 		errs = []
-		total_reqs = 0
+		tally = 0
 		for x,shelter in enumerate(shelter_lst):
 			try:
-				dogs, num_requests = get_dogs_by_shelter(shelter)
+				dogs, tally = get_dogs_by_shelter(shelter,tally)
 				
 			except (ValueError,KeyError):
 				errs.append(shelter)
 				continue 
 			if dogs is not None: 
-				total_reqs += num_requests
 				for dog in dogs: 
-					insert_dog(dog, coll)
+					insert_dog(dog, self.dogs_coll)
 				if not x % 100: 
 					print '%s percent of shelters complete.' % (str(100*(x/float(len(shelter_lst)))))
 		pd.Series(errs).to_csv('errs.csv',index=False)
