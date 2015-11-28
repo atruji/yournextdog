@@ -67,6 +67,7 @@ class NightlyUpdate(object):
 				except:
 					pass
 		def get_dogs_by_shelter(shelter, tally):
+			print tally
 			if tally < 5604:
 				z1 = requests.get('http://api.petfinder.com/shelter.getPets?key=7d43f07af007bb1dc8c1bdb73508271e&id='+shelter+'&output=full&format=json&count=1000')
 			else:
