@@ -87,6 +87,11 @@ html, body {
     background-repeat: repeat;   
 }
 
+.bg-10 {
+  background-image: url(../images/scene00001.png); 
+  background-size: cover;
+  z-index: 2;}
+
 @media (min-aspect-ratio: 16/9) {
   .fullscreen-bg__video {
     height: 300%;
