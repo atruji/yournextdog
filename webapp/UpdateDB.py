@@ -16,8 +16,8 @@ class NightlyUpdate(object):
 		self.shelter_coll = self.db.shelter
 		self.dogs_coll = self.db.dog
 		self.err_coll = self.db.errs
-		#self.conn = psycopg2.connect(dbname='dogs', user='ubuntu')
-		#self.psql = self.conn.cursor()
+		self.conn = psycopg2.connect(dbname='dogs', user='ubuntu')
+		self.psql = self.conn.cursor()
 		self.states=['AL','AK','AZ','AR','CA','CO','CT','DE','DC','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','PR','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY',]
 		self.botoconn = boto.connect_s3(os.environ['access_key'], os.environ['access_secret_key'])
 		bucket_name = os.environ['bucket_name']
@@ -130,7 +130,7 @@ class NightlyUpdate(object):
 					added = 1
 					for x in d_rec['media']['photos']['photo']:
 						if x['@size']=='pn':
-							dog_img_dict[str(d_id)+'_'+str(added)] = x['t']
+							self.dog_img_dict[str(d_id)+'_'+str(added)] = x['t']
 							added += 1 
 			self.dog_img_lst = self.dog_img_dict.keys()
 		def crossRefSQL():
