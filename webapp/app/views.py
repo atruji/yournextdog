@@ -59,8 +59,8 @@ def search():
 			radius = 500
 		print user_file, session_id, user_zip, radius
 		return redirect(url_for('get_results',sess_id=session_id,zipcode=user_zip,img=user_file,radius=radius, searchtype=searchtype))
-	#elif form.errors:
-	#	flash(form.errors)	
+	elif ftype=='badforms':
+		flash('test')	
 	return render_template('index__op__image_full_screen.html', 
                            title='Search',
                            formfile=formfile,
