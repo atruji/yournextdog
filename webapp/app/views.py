@@ -4,7 +4,7 @@ from .forms import SearchFormWeb, SearchFormFile
 import pandas as pd
 import re
 import random
-from matchengine.DoggyMatchEngine_thread import DoggyMatchEngine
+from matchengine.DoggyMatchEngine import DoggyMatchEngine
 import os
 from werkzeug import secure_filename 
 import threading

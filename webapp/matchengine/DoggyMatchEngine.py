@@ -14,10 +14,6 @@ import multiprocessing as mp
 import re
 import os
 
-def test_split(in_val):
-	return in_val[0], map(float,in_val[1].replace('{','').replace('}','').split(','))
-
-
 class DoggyMatchEngine(object):
 	def __init__(self, GPU=True):
 		self.conn = psycopg2.connect(dbname='dogs', user='ubuntu')
@@ -61,7 +57,7 @@ class DoggyMatchEngine(object):
 
 
 
-	def match(self, user_zip, user_radius, num_matches=10):
+	def sql_import(self, user_zip, user_radius):
 		self.psql.execute(
 			'''select lng,lat from zipcodes where zip=%s limit 1;  
 			''' % user_zip
@@ -76,11 +72,10 @@ class DoggyMatchEngine(object):
 			)
 		filtered = self.psql.fetchall()
 
-		#pool = mp.Pool(8)
-		#rec_tuple = pool.map(test_split,filtered)
 		self.geo_ids_lst = [x[0] for x in filtered]
 		self.geo_feature_lst = [x[1] for x in filtered]
 
+	def match(self,num_matches=10):
 		sim_scores = pairwise_distances(np.array(self.user_features),np.array(self.geo_feature_lst),'cosine', n_jobs=-1)
 		sim_scores = np.array(sim_scores).flatten()
 		ids = np.array(self.geo_ids_lst)

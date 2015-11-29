@@ -138,11 +138,12 @@ class NightlyUpdate(object):
 			datetime = time.localtime()
 			datestr = "%s_%s_%s" % (str(datetime.tm_mon),str(datetime.tm_mday),str(datetime.tm_year))
 			cmd = "pg_dump dogs | gzip > %s" % "/tmp/sql_bkups/"+datestr+'.gz'
+			os.system(cmd)
 			#Get recs from sql
 			self.psql.execute('select id from records;')
 			sql_lst = [x[0] for x in self.psql.fetchall()]
-			new_dog_imgs = list(set(sql_lst)-set(self.dog_img_lst))
-			outdated_dog_imgs = list(set(self.dog_img_lst)-set(sql_lst))
+			outdated_dog_imgs = list(set(sql_lst)-set(self.dog_img_lst))
+			new_dog_imgs = list(set(self.dog_img_lst)-set(sql_lst))
 
 			for x in outdated_dog_imgs:
 				self.psql.execute('''delete from records where id='%s';''' % x)
