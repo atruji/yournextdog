@@ -4,9 +4,10 @@ from .forms import SearchFormWeb, SearchFormFile
 import pandas as pd
 import re
 import random
-from matchengine.DoggyMatchEngine import DoggyMatchEngine
+from matchengine.DoggyMatchEngine_thread import DoggyMatchEngine
 import os
 from werkzeug import secure_filename 
+import threading
 
 UPLOAD_FOLDER = 'app/static/uploads/'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif', 'JPEG', 'JPG'])
@@ -74,8 +75,11 @@ def get_results():
 	dog_url = request.args.get('img')
 	user_radius = request.args.get('radius')
 	matcher = DoggyMatchEngine(GPU=False)
-	matcher.fit(dog_url,session_id)
-	matcher.match(user_zip,user_radius)
+	t = threading.Thread(name='child procs', target=matcher.fit, args=(dog_url,session_id))
+	t.start()
+	matcher.sql_import(user_zip,user_radius)
+	t.join()
+	matcher.match()
 	matcher.results()
 
 	if request.args.get('searchtype')=='web':
