@@ -7,6 +7,7 @@ import boto
 import pandas as pd
 import psycopg2
 import json
+import time
 
 class NightlyUpdate(object):
 	def __init__(self):
@@ -123,22 +124,26 @@ class NightlyUpdate(object):
 	def updateDogImgLst(self):
 		def getCurImgLst():
 			self.dog_img_dict = {}
-			d_id = coll.find_one()['id']['t']
-			for i,x in enumerate(coll.find_one()['media']['photos']['photo']):
-				if x['@size']=='pn' or x['@size']=='x':
-					dog_img_dict[str(d_id)+'_'+str(i)] = x['t']
+			for d_rec in self.dogs_coll.find():
+				d_id = d_rec['id']['t']
+				if d_rec['media']:
+					added = 1
+					for x in d_rec['media']['photos']['photo']:
+						if x['@size']=='pn':
+							dog_img_dict[str(d_id)+'_'+str(added)] = x['t']
+							added += 1 
 			self.dog_img_lst = self.dog_img_dict.keys()
-		def crossRefSQL(self):
+		def crossRefSQL():
+			# Backup existing DB
+			datetime = time.localtime()
+			datestr = "%s_%s_%s" % (str(datetime.tm_mon),str(datetime.tm_mday),str(datetime.tm_year))
+			cmd = "pg_dump dogs | gzip > %s" % "/tmp/sql_bkups/"+datestr+'.gz'
+			#Get recs from sql
 			self.psql.execute('select id from records;')
 			sql_lst = [x[0] for x in self.psql.fetchall()]
-			new_dog_imgs = []
-			for x in self.dog_img_lst:
-				if x not in sql_lst:
-					new_dog_imgs.append(x)
-			outdated_dog_imgs = []
-			for x in sql_lst:
-				if x not in self.dog_img_lst:
-					outdated_dog_imgs.append(x)
+			new_dog_imgs = list(set(sql_lst)-set(self.dog_img_lst))
+			outdated_dog_imgs = list(set(self.dog_img_lst)-set(sql_lst))
+
 			for x in outdated_dog_imgs:
 				self.psql.execute('''delete from records where id='%s';''' % x)
 				self.conn.commit()
@@ -172,6 +177,9 @@ class NightlyUpdate(object):
 				except:
 					e = sys.exc_info()[1]
 					self.err_coll.insert_one({'id':record['id'], 'err':str(e)})
+
+		getCurImgLst()
+		crossRefSQL()
 
 
 
