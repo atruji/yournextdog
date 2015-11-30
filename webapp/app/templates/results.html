@@ -109,8 +109,8 @@
         <!---->
         <header class="section-heading">
             <h2>Match Results</h2>
-            <span>Successful projects,happy clients and great results</span><br>
-              <div id="myDiv"> <img src="{{ user_img }}" alt="Your Image", style="maxwidth: 100%; maxheight:100%;"><span> Your Image </span> </div>
+            
+              <div id="myDiv"> <img src="{{ user_img }}" alt="Your Image", style="maxwidth: 100%; maxheight:100%;"><span> Your Image </span> </div><span><br>Your recommended dogs are below! <br> Hover over the images to get more info on each dog!</span>
 
             
         </header>
@@ -139,7 +139,8 @@
                     <div class="portfolio-detail-overlay">
                         <div class="middle-align-wrap">
                             <div class="middle-align-cell">
-                                <span>Name: {{ name }}<br>
+                                <span>Match Score: {{ match_score }}
+                                    Name: {{ name }}<br>
                                     Gender: {{ gender }} <br>
                                     Age: {{ age }}<br>
                                     Click to see my profile!</span>
@@ -164,7 +165,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-sm-4">
-                <p class="copyright text-xs-center">&copy; 2015 Your company name</p>
+                <p class="copyright text-xs-center">&copy; 2015 YourNextDog.com</p>
             </div>
 
             <div class="col-md-5 col-sm-4">
@@ -184,11 +185,7 @@
                 </ul>
             </div>
 
-            <div class="col-md-4 col-sm-4">
-                <div class="footer-menu text-xs-center">
-                    <a href="#">Privacy Policy</a> | <a href="">Terms &amp; Conditions</a>
-                </div>
-            </div>
+        
         </div>
     </div>
 </footer>

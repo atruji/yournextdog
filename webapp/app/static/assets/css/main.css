@@ -456,7 +456,7 @@ h4 {
   word-spacing: 3px;
   text-transform: uppercase;
   letter-spacing: 3px;
-  margin-bottom: 25px; }
+  margin-bottom: 0px; }
   @media only screen and (max-width: 992px) {
     h4 {
       letter-spacing: 1px; } }
@@ -807,7 +807,7 @@ blockquote p {
     .header-wrapper .header-wrapper-inner .intro p {
       color: rgba(255, 255, 255, 0.75);
       letter-spacing: 4px;
-      margin-bottom: 80px;
+      margin-bottom: 10px;
       text-transform: uppercase; }
       @media only screen and (max-width: 992px) {
         .header-wrapper .header-wrapper-inner .intro p {
