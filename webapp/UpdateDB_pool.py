@@ -13,6 +13,8 @@ import stem.process
 import shutil
 import cPickle
 import multiprocessing
+import partial
+from PooledDownloader import downloadNewImages
 
 class NightlyUpdate(object):
 	def __init__(self):
@@ -158,33 +160,14 @@ class NightlyUpdate(object):
 			for x in new_dog_imgs:
 				self.new_dog_img_dict[x] = self.dog_img_dict[x]
 			cPickle.dump(self.new_dog_img_dict,open('/tmp/'+datestr+'.P','wb'))
-		def downloadNewImages(d_id):
-			try:
-				dfile = new_dog_img_dict[d_id]
-				fname= d_id +'.jpg'
-				if not self.bucket.get_key(fname):
-					session = requesocks.session()
-					session.proxies = {'http': 'socks5://127.0.0.1:9050','https': 'socks5://127.0.0.1:9050'}
-			
-					file_object = self.bucket.new_key(fname)
-					r = session.get(dfile)
-					if r.status_code == 200:
-						with open(fname, 'wb') as f:
-							r.raw.decode_content = True
-							shutil.copyfileobj(r.raw, f)
-						file_object.set_contents_from_filename('./'+fname,policy='public-read')
-						self.success.append(x)
-						os.remove(fname)
-					else:
-						self.err_coll.insert_one({'id':record['id'], 'err':r.status_code})
-			except:
-				e = sys.exc_info()[1]
-				self.err_coll.insert_one({'id':record['id'], 'err':str(e)})
-
+		
+		#getCurImgLst()
+		#crossRefSQL()
 		tor_process = stem.process.launch_tor_with_config(config = {'SocksPort': str(self.socks_port)})
 		pool = multiprocessing.Pool(8)
 		iterable = self.new_dog_img_dict.keys()
-		pool.map(downloadNewImages,iterable)
+		func = partial(downloadNewImages,bucket,self.new_dog_img_dict)
+		pool.map(func,iterable)
 		pool.close()
 		tor_process.kill()
 
