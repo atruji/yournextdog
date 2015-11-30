@@ -13,8 +13,9 @@ import stem.process
 import shutil
 import cPickle
 import multiprocessing
-import partial
+from functools import partial
 from PooledDownloader import downloadNewImages
+import sys
 
 class NightlyUpdate(object):
 	def __init__(self):
@@ -166,7 +167,7 @@ class NightlyUpdate(object):
 		tor_process = stem.process.launch_tor_with_config(config = {'SocksPort': str(self.socks_port)})
 		pool = multiprocessing.Pool(8)
 		iterable = self.new_dog_img_dict.keys()
-		func = partial(downloadNewImages,bucket,self.new_dog_img_dict)
+		func = partial(downloadNewImages,self.bucket,self.new_dog_img_dict)
 		pool.map(func,iterable)
 		pool.close()
 		tor_process.kill()

@@ -3,7 +3,7 @@ import requesocks
 import shutil
 from pymongo import MongoClient
 import os
-
+import sys
 def downloadNewImages(bucket, new_dog_img_dict, d_id):
 	try:
 		dfile = new_dog_img_dict[d_id]
@@ -24,7 +24,7 @@ def downloadNewImages(bucket, new_dog_img_dict, d_id):
 				client = MongoClient()
 				db = client.pet
 				err_coll = db.errs
-				err_coll.insert_one({'id':record['id'], 'err':r.status_code})
+				err_coll.insert_one({'id':d_id, 'err':r.status_code})
 	except:
 		client = MongoClient()
 		db = client.pet
