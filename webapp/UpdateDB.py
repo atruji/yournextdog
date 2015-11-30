@@ -8,6 +8,8 @@ import pandas as pd
 import psycopg2
 import json
 import time
+import requesocks
+import stem.process
 
 class NightlyUpdate(object):
 	def __init__(self):
@@ -22,8 +24,7 @@ class NightlyUpdate(object):
 		self.botoconn = boto.connect_s3(os.environ['access_key'], os.environ['access_secret_key'])
 		bucket_name = os.environ['bucket_name']
 		self.bucket = self.botoconn.get_bucket(bucket_name)
-		#self.socks_port = 9050
-		#self.tor_process = stem.process.launch_tor_with_config(config = {'SocksPort': str(self.socks_port)})
+		self.socks_port = 9050
 
 		
 	def updateShelters(self):   
@@ -150,10 +151,11 @@ class NightlyUpdate(object):
 				self.conn.commit()
 				#key = x.encode('ascii','ignore')+'.jpg'    
 				#self.bucket.delete_key(key)
-			self.new_dog_img_dict =[]
+			self.new_dog_img_dict ={}
 			for x in new_dog_imgs:
 				self.new_dog_img_dict[x] = self.dog_img_dict[x]
 		def downloadNewImages():
+			tor_process = stem.process.launch_tor_with_config(config = {'SocksPort': str(self.socks_port)})
 			self.success = []
 			for x in self.new_dog_img_dict.keys():
 				try:
@@ -172,7 +174,6 @@ class NightlyUpdate(object):
 							file_object.set_contents_from_filename('./'+fname,policy='public-read')
 							self.success.append(x)
 							os.remove(fname)
-							#time.sleep(1)
 						else:
 							self.err_coll.insert_one({'id':record['id'], 'err':r.status_code})
 				except:
