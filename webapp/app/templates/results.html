@@ -110,10 +110,11 @@
         <header class="section-heading">
             <h2>Match Results</h2>
             
-              <div id="myDiv"> <img src="{{ user_img }}" alt="Your Image", style="maxwidth: 100%; maxheight:100%;"><span> Your Image </span> </div><span><br>Your recommended dogs are below! <br> Hover over the images to get more info on each dog!</span>
+              <div id="myDiv"> <img src="{{ user_img }}" alt="Your Image", style="maxwidth: 100%; maxheight:100%;"><span> Your Image </span> </div>
 
-            
+            <span><br><br>Your recommended dogs are below! <br> Hover over the images to get more info on each dog!</span>
         </header>
+
         <!---->
     </div>
 
@@ -139,7 +140,7 @@
                     <div class="portfolio-detail-overlay">
                         <div class="middle-align-wrap">
                             <div class="middle-align-cell">
-                                <span>Match Score: {{ match_score }}
+                                <span>Match Score: {{ match_score }}%<br>
                                     Name: {{ name }}<br>
                                     Gender: {{ gender }} <br>
                                     Age: {{ age }}<br>
