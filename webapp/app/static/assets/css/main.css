@@ -2308,7 +2308,7 @@ blockquote p {
     padding-bottom: 25px;
     border-bottom: 1px solid #3c3c3c; }
   .footer-widgets .content-wrap.widget-contact {
-    padding-left: 25px; }
+    padding-left: 0px; }
     .footer-widgets .content-wrap.widget-contact ul {
       padding: 0;
       list-style: none;
@@ -2316,7 +2316,7 @@ blockquote p {
       .footer-widgets .content-wrap.widget-contact ul li {
         margin-bottom: 25px; }
         .footer-widgets .content-wrap.widget-contact ul li i {
-          margin-right: 6px; }
+          margin-right: 0px; }
   .footer-widgets .content-wrap.widget-recent-posts {
     padding-left: 25px; }
     .footer-widgets .content-wrap.widget-recent-posts ul {
