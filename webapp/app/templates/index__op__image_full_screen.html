@@ -179,13 +179,13 @@
                             </div>   
                             <form action="" method="post" name="search" enctype="multipart/form-data">
                             <p class="text-center">Please upload a dog image:<br>
-                            {{ formfile.fileName(size=40) }}<br></p>
+                            {{ formfile.fileName(size=40, style="max-width: 90%") }}<br></p>
                             <p>Please enter your zipcode:<br>
                             {{ formfile.zipcode(size=10) }}<br></p>
                             <p>
                             Search Radius?{{ formfile.radius }}
                             </p>
-                            <p class="text-center"><input type="submit" value="Search" style="font-face: 'Comic Sans MS'; font-size: larger; background-color:#a9a9a9" onclick="loading();"></p></form>
+                            <p class="text-center"><input type="submit" value="Search" style="font-face: 'Comic Sans MS'; font-size: larger; background-color:#a9a9a9" onclick="loading();"></p></form><h5 class="text-center">{{ err }}</h5>
                         <br></div>
 
                     </div>
@@ -206,9 +206,9 @@
                             
 
                             </div>
-                            <form action="" method="post" name="search" enctype="multipart/form-data">
+                            <form action="" method="post" name="search" enctype="multipart/form-data" style="max-width: 90%;">
                             <p class="text-center">Please enter a URL to a dog image:<br>
-                            {{ formweb.dogurl(size=40) }}<br></p><br>
+                            {{ formweb.dogurl(size=40, style="max-width: 90%") }}<br></p><br>
                             <p>Please enter your zipcode:<br>
                             {{ formweb.zipcode(size=10) }}<br></p>
                             <p>
@@ -312,9 +312,17 @@
 <script type="text/javascript">// <![CDATA[
         function loading(){
             $("#loading").show();
-            $("#content").hide();       
+            $("#content").hide();     
         }
 // ]]></script>
+
+<script type="text/javascript">
+        var switch_sect = '{{switcher}}';
+        if (switch_sect == 'true') {
+            window.location.replace("http://127.0.0.1:4700#services");
+
+        }
+</script>
 
 <!--[if lt IE 10]>
 <script>

@@ -19,18 +19,29 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 def form_validate(formfile,formweb):
-	if formfile.zipcode.data and formfile.radius.data and formfile.fileName.data:
-		return True, 'SearchFormFile'
-	elif formweb.zipcode.data and formweb.radius.data and formweb.dogurl.data:
-		return True, 'SearchFormWeb'
-	return False, 'badforms'
+	if formfile.is_submitted():
+		submitted=True
+		if formfile.zipcode.data and formfile.radius.data and formfile.fileName.data:
+			return True, True, 'SearchFormFile'
+		else:
+			return True, False, 'Please fill out all forms!'
+	elif formweb.is_submitted():
+		if formweb.zipcode.data and formweb.radius.data and formweb.dogurl.data:
+			return True, True,'SearchFormWeb'
+		else:
+			return True, False, 'Please fill out all forms!'
+	else:
+		return False, float('NaN'), float('NaN')
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def search():
+	err=''
+	switch_sect = 'false'
 	formfile = SearchFormFile()
 	formweb = SearchFormWeb()
-	valid, ftype = form_validate(formfile,formweb)
+
+	submitted, valid, ftype = form_validate(formfile,formweb)
 	if valid and ftype=='SearchFormFile':
 		searchtype='file'
 		filename = secure_filename(formfile.fileName.data.filename)
@@ -39,7 +50,6 @@ def search():
 			formfile.fileName.data.save(file_path)
 			user_file = file_path
 		else:
-			flash('Error with submission!') 
 			return redirect('/')
 		session_id = str(random.randint(1,999999))
 		user_zip = formfile.zipcode.data
@@ -58,14 +68,16 @@ def search():
 			radius = 100
 		else:
 			radius = 500
-		print user_file, session_id, user_zip, radius
 		return redirect(url_for('get_results',sess_id=session_id,zipcode=user_zip,img=user_file,radius=radius, searchtype=searchtype))
-	elif ftype=='badforms':
-		flash('test')	
-	return render_template('index__op__image_full_screen.html', 
+	if not valid:
+		switch_sect = 'true'
+		err = ftype
+	return render_template('index__op__image_full_screen.html',id='services', 
                            title='Search',
                            formfile=formfile,
-                           formweb=formweb)
+                           formweb=formweb,
+                           err=err,
+                           switcher=switch_sect)
 
 
 @app.route('/results', methods=['GET','POST'])
@@ -100,7 +112,4 @@ def get_results():
 	data = zip(images,names,genders,ages,match_scores,profile_pages)
 	return render_template('results.html', data=data, user_img=user_file)
 
-@app.route('/loading', methods=['POST'])
-def display_loading():
-	return render_template('tester.html')
     
