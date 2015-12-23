@@ -36,7 +36,8 @@ def form_validate(formfile,formweb):
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 def search():
-	err=''
+	errweb=''
+	errform=''
 	switch_sect = 'false'
 	formfile = SearchFormFile()
 	formweb = SearchFormWeb()
@@ -71,12 +72,16 @@ def search():
 		return redirect(url_for('get_results',sess_id=session_id,zipcode=user_zip,img=user_file,radius=radius, searchtype=searchtype))
 	if not valid:
 		switch_sect = 'true'
-		err = ftype
+		if formweb.is_submitted():
+			errweb = ftype
+		else:
+			errform = ftype
 	return render_template('index__op__image_full_screen.html',id='services', 
                            title='Search',
                            formfile=formfile,
                            formweb=formweb,
-                           err=err,
+                           errWeb=errweb,
+                           errForm=errform,
                            switcher=switch_sect)
 
 
