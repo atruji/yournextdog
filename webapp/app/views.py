@@ -19,17 +19,18 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 def form_validate(formfile,formweb):
-	if formfile.is_submitted():
-		submitted=True
-		if formfile.zipcode.data and formfile.radius.data and formfile.fileName.data:
-			return True, True, 'SearchFormFile'
-		else:
-			return True, False, 'Please fill out all forms!'
-	elif formweb.is_submitted():
-		if formweb.zipcode.data and formweb.radius.data and formweb.dogurl.data:
-			return True, True,'SearchFormWeb'
-		else:
-			return True, False, 'Please fill out all forms!'
+	submit = request.values.keys()
+	if submit: 	
+		if submit[0].startswith('formfile'):
+			if formfile.validate():
+				return True, True, 'SearchFormFile'
+			else:
+				return True, False, 'Please fill out all forms!'
+		elif submit[0].startswith('formweb'):
+			if formweb.validate():
+				return True, True, 'SearchFormWeb'
+			else:
+				return True, False, 'Please fill out all forms!'
 	else:
 		return False, float('NaN'), float('NaN')
 
@@ -37,12 +38,16 @@ def form_validate(formfile,formweb):
 @app.route('/index', methods=['GET', 'POST'])
 def search():
 	errweb=''
-	errform=''
+	errfile=''
 	switch_sect = 'false'
-	formfile = SearchFormFile()
-	formweb = SearchFormWeb()
+	formfile = SearchFormFile(prefix="formfile")
+	formweb = SearchFormWeb(prefix="formweb")
 
 	submitted, valid, ftype = form_validate(formfile,formweb)
+	#print request.values.keys()
+	#print 'f', formfile.is_submitted(),'w',formweb.is_submitted()
+	#print submitted,valid,ftype
+
 	if valid and ftype=='SearchFormFile':
 		searchtype='file'
 		filename = secure_filename(formfile.fileName.data.filename)
@@ -72,16 +77,16 @@ def search():
 		return redirect(url_for('get_results',sess_id=session_id,zipcode=user_zip,img=user_file,radius=radius, searchtype=searchtype))
 	if not valid:
 		switch_sect = 'true'
-		if formweb.is_submitted():
+		if request.values.keys()[0].startswith('formweb'):
 			errweb = ftype
 		else:
-			errform = ftype
+			errfile = ftype
 	return render_template('index__op__image_full_screen.html',id='services', 
                            title='Search',
                            formfile=formfile,
                            formweb=formweb,
                            errWeb=errweb,
-                           errForm=errform,
+                           errFile=errfile,
                            switcher=switch_sect)
 
 
