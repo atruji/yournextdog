@@ -11,9 +11,6 @@
     $ip=$_SERVER['HTTP_X_FORWARDED_FOR'];} else {
     $ip=$_SERVER['REMOTE_ADDR'];}
     ?>
-    <script language="php">
-    $test="test"
-    </script>
 
 
 <script>
@@ -139,7 +136,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
             <div class="container">
 
                 <div class="intro">
-                    <h2>Looking to Adopt a New Best Friend?<p><?php echo $ip; ?></p></h2>
+                    <h2>Looking to Adopt a New Best Friend?<p><?php echo $test; ?></p></h2>
                     <br><p>Search in a whole new way!<p>
                 </div><!-- /.intro -->
 
