@@ -4,18 +4,22 @@
 <div id="loading"></div>
 <div id="content">
 <head>
-    <?php 
-    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-    $ip=$_SERVER['HTTP_CLIENT_IP'];}
-    elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-    $ip=$_SERVER['HTTP_X_FORWARDED_FOR'];} else {
-    $ip=$_SERVER['REMOTE_ADDR'];}
-    ?>
-    <script language="php">
-    $test="test"
-    </script>
 
+<script type="text/javascript">
+function guid() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+    s4() + '-' + s4() + s4() + s4();
+}
+</script> 
 
+<script type="text/javascript">
+    var uuid = guid();
+</script>   
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -79,7 +83,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 
 <body data-spy="scroll" data-target="#main-nav-collapse" data-offset="100">
 
-<?php $test="test" ?>
+{% test = "test" %}
 
 <div class="page-loader">
     <div class="loader">Loading...</div>
@@ -139,7 +143,9 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
             <div class="container">
 
                 <div class="intro">
-                    <h2>Looking to Adopt a New Best Friend?<p><?php echo $ip; ?></p></h2>
+                    <h2>Looking to Adopt a New Best Friend?<p>the user id is:<script type="text/javascript">
+document.write(uuid);
+</script></p></h2>
                     <br><p>Search in a whole new way!<p>
                 </div><!-- /.intro -->
 

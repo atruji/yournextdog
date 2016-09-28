@@ -84,7 +84,7 @@ def search():
             errweb = ftype
         else:
             errfile = ftype
-    return render_template('index__op__image_full_screen.php', id='services',
+    return render_template('index__op__image_full_screen.html', id='services',
                            title='Search',
                            formfile=formfile,
                            formweb=formweb,
