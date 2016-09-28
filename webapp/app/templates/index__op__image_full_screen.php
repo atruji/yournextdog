@@ -136,7 +136,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
             <div class="container">
 
                 <div class="intro">
-                    <h2>Looking to Adopt a New Best Friend?<p>{{test}}</p></h2>
+                    <h2>Looking to Adopt a New Best Friend?<p>{{ test }}</p></h2>
                     <br><p>Search in a whole new way!<p>
                 </div><!-- /.intro -->
 
